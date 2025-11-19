@@ -3,7 +3,6 @@ const {color} = defineProps({
   color: String
 })
 
-console.log(color)
 </script>
 
 <template>

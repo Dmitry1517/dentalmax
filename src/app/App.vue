@@ -1,6 +1,10 @@
 <script setup>
 import '@/app/style/style.css'
 import LogoName from '@/shared/components/LogoName.vue';
+import Button from '@/shared/components/Button.vue';
+import Information from '@/shared/components/Information.vue';
+import Twogis from '@/shared/icons/Twogis.vue';
+import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
 </script>
 
 <template>
@@ -23,26 +27,24 @@ import LogoName from '@/shared/components/LogoName.vue';
         </div>
       </div>
       <div class="form">
-        <button class="button">Записаться на приём</button>
+        <Button>Записаться на приём</Button>
       </div>
     </div>
-    <div class="question">
-      <span class="qustion__title">Почему нам доверяют свою улыбку?</span>
-      <span class="qustion__text">
-        Забота о здоровье начинается с качественной стоматологии. Мы обеспечиваем безопасное и
+    <Information 
+      title="Почему нам доверяют свою улыбку?" 
+      text="Забота о здоровье начинается с качественной стоматологии. Мы обеспечиваем безопасное и
         эффективное лечение, используя новейшие технологии, современные материалы и оборудование.
-        Наша цель - сделать заботу о вашей улыбке доступной и комфортной.
-      </span>
-    </div>
+        Наша цель - сделать заботу о вашей улыбке доступной и комфортной."
+      color="#000"
+    />
 
     <div style="padding: 20px; color: red">Здесь будет слайдер</div>
 
-    <div class="question">
-      <span class="qustion__title">Полный спектр стоматологических услуг</span>
-      <span class="qustion__text">
-        Мы предлагаем полный все виды стоматологической помощи для взрослых и детей.
-      </span>
-    </div>
+    <Information 
+      title="Полный спектр стоматологических услуг" 
+      text="Мы предлагаем полный все виды стоматологической помощи для взрослых и детей."
+      color="#000"
+    />
 
     <div class="services">
       <div class="services__item">Консультация и диагностика</div>
@@ -55,25 +57,25 @@ import LogoName from '@/shared/components/LogoName.vue';
     </div>
 
     <div style="display: flex; justify-content: center; padding: 5px 20px 40px 20px">
-      <button class="button">Подробнее об услугах</button>
+      <Button>Подробнее об услугах</Button>
     </div>
 
     <div class="specialists">
-      <div class="question">
-        <span class="qustion__title qustion__title_spec">Наша команда - ваша здоровая улыбка</span>
-        <span class="qustion__text qustion__text_spec">
-          Познакомьтесь с нашими высококвалифицированными специалистами.
-        </span>
-      </div>
+
+      <Information 
+        title="Наша команда - ваша здоровая улыбка" 
+        text="Познакомьтесь с нашими высококвалифицированными специалистами."
+        color="#fff"
+      />
+      
       <div style="padding: 20px; color: red">Здесь будет слайдер</div>
     </div>
 
     <div class="fidback">
-      <div class="question">
-        <span class="qustion__title qustion__title_icon"
-          >Что говорят наши пациенты на <img src="/2gis-logo.png" alt="2ГИС"
-        /></span>
-        <span class="qustion__text">
+      <div class="fidback__question">
+        <span class="fidback__title fidback__icon"
+          >Что говорят наши пациенты на <Twogis /></span>
+        <span class="fidback__text">
           Познакомьтесь с нашими высококвалифицированными специалистами.
         </span>
       </div>
@@ -89,6 +91,8 @@ import LogoName from '@/shared/components/LogoName.vue';
       </div>
       <div class="adress__geo">Здесь будет карта</div>
     </div>
+
+    <TreatmentPlan />
   </div>
 </template>
 
