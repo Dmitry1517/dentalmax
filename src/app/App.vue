@@ -5,6 +5,7 @@ import Button from '@/shared/components/Button.vue';
 import Information from '@/shared/components/Information.vue';
 import Twogis from '@/shared/icons/Twogis.vue';
 import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
+import FooterHome from '@/entities/FooterHome.vue'
 </script>
 
 <template>
@@ -93,6 +94,7 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
     </div>
 
     <TreatmentPlan />
+    <FooterHome />
   </div>
 </template>
 

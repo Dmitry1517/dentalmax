@@ -8,7 +8,7 @@ const {color} = defineProps({
 <template>
     <div class="logo">
         <Logo :color="color" />
-        <span class="logo__name">ДентАлМакс</span>
+        <span class="logo__name" :style="{color: color}">ДентАлМакс</span>
     </div>
 </template>
 
@@ -16,10 +16,10 @@ const {color} = defineProps({
 .logo {
     display: flex;
     align-items: center;
+    gap: 5px;
 }
 
 .logo__name {
     font-size: 30px;
-    color: #fff;
 }
 </style>
