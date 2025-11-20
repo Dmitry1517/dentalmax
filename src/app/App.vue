@@ -6,6 +6,7 @@ import Information from '@/shared/components/Information.vue';
 import Twogis from '@/shared/icons/Twogis.vue';
 import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
 import FooterHome from '@/entities/FooterHome.vue'
+import TextSlider from '@/entities/TextSlider.vue';
 </script>
 
 <template>
@@ -39,7 +40,8 @@ import FooterHome from '@/entities/FooterHome.vue'
       color="#000"
     />
 
-    <div style="padding: 20px; color: red">Здесь будет слайдер</div>
+    <!-- <div style="padding: 20px; color: red">Здесь будет слайдер</div> -->
+    <TextSlider />
 
     <Information 
       title="Полный спектр стоматологических услуг" 
