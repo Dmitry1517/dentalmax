@@ -1,4 +1,7 @@
 <script setup>
+import ArrowLeft from '@/shared/icons/ArrowLeft.vue';
+import ArrowRight from '@/shared/icons/ArrowRight.vue';
+
 class Slider {
     constructor() {
         this.slider = document.getElementById('slider');
@@ -65,27 +68,29 @@ class Slider {
     }
 }
         
-        // Автоматическое переключение между слайдером и сеткой при изменении размера окна
-        function handleResize() {
-            const sliderContainer = document.querySelector('.slider-container');
-            const gridContainer = document.getElementById('gridContainer');
-            const width = window.innerWidth;
-            
-            if (width < 537) {
-                sliderContainer.style.display = 'block';
-                gridContainer.style.display = 'none';
-            } else {
-                sliderContainer.style.display = 'none';
-                gridContainer.style.display = 'grid';
-            }
-        }
-        
-        // Инициализация
-        document.addEventListener('DOMContentLoaded', () => {
-            new Slider();
-            handleResize();
-            window.addEventListener('resize', handleResize);
-        });
+// Автоматическое переключение между слайдером и сеткой при изменении размера окна
+function handleResize() {
+    const sliderContainer = document.querySelector('.slider-container');
+    const gridContainer = document.getElementById('gridContainer');
+    const width = window.innerWidth;
+    
+    if (width < 537) {
+        sliderContainer.style.display = 'block';
+        gridContainer.style.display = 'none';
+    } else {
+        sliderContainer.style.display = 'none';
+        gridContainer.style.display = 'grid';
+    }
+}
+
+// Инициализация
+document.addEventListener('DOMContentLoaded', () => {
+    new Slider();
+    handleResize();
+    window.addEventListener('resize', handleResize);
+});
+
+
 </script>
 
 <template>
@@ -95,7 +100,13 @@ class Slider {
         <div class="slider-container">
             <div class="slider" id="slider">
                 <div class="slide">
-                    <div class="slide-content">Слайд 1</div>
+                    <div class="slide-content">
+                        <span class="slide-content__title">Современное оборудование</span>
+                        <span class="slide-content__text">
+                            Мы проводим безопасное и комфортное лечение на оборудовании, которое отвечает строгим медецинским
+                            стандартам. Это залог точной диагностики и высоких результатов.
+                        </span>
+                    </div>
                 </div>
                 <div class="slide">
                     <div class="slide-content">Слайд 2</div>
@@ -115,8 +126,8 @@ class Slider {
             </div>
             
             <div class="slider-arrows">
-                <button class="arrow prev" id="prevBtn">←</button>
-                <button class="arrow next" id="nextBtn">→</button>
+                <div class="arrow prev" id="prevBtn"><ArrowLeft /></div>
+                <div class="arrow next" id="nextBtn"><ArrowRight /></div>
             </div>
         </div>
         
@@ -157,43 +168,23 @@ class Slider {
 }
 
 .slide-content {
-    background: #f0f0f0;
-    border-radius: 10px;
-    padding: 30px 20px;
-    text-align: center;
-    height: 200px;
+    border-radius: #383b68;
+    background: #fff;
+    border-radius: 20px;
+    border: 2px solid #383b68;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: bold;
+    flex-direction: column;
+    gap: 30px;
 }
+
+
 
 /* Стили для стрелок */
 .slider-arrows {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 60px;
     margin-top: 20px;
-}
-
-.arrow {
-    width: 50px;
-    height: 50px;
-    border: none;
-    background: #333;
-    color: white;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    transition: background 0.3s ease;
-}
-
-.arrow:hover {
-    background: #555;
 }
 
 /* Стили для grid сетки (планшет и десктоп) */
@@ -245,16 +236,25 @@ class Slider {
     }
     
     .slide-content {
-        height: 150px;
-        font-size: 16px;
-        padding: 20px 15px;
+        padding: 40px 20px;
+    }
+
+    .slide-content__title {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: #383b68;
+        border-bottom: 1px solid #383b68;
+        padding-bottom: 30px;
+        width: 100%;
+    }
+
+    .slide-content__text {
+        text-align: center;
+        font-size: 15px;
+        color: #383b68;
     }
     
-    .arrow {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
 }
 
 @media (max-width: 375px) {
