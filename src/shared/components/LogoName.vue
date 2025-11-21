@@ -20,6 +20,12 @@ const {color} = defineProps({
 }
 
 .logo__name {
-    font-size: 30px;
+    font-size: 24px;
+}
+
+@media all and (min-width: 1024px) {
+    .logo__name {
+        font-size: 30px;
+    }
 }
 </style>

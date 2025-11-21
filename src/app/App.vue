@@ -9,18 +9,16 @@ import FooterHome from '@/entities/FooterHome.vue'
 import TextSlider from '@/entities/TextSlider.vue';
 import SpecialistSlider from '@/entities/SpecialistSlider.vue';
 import FidbackSlider from '@/entities/FidbackSlider.vue';
+import Header from '@/entities/Header.vue';
 </script>
 
 <template>
   <div>
-    <div id="header">
+    <Header />
+    <!-- <div id="header">
       <div class="header">
-        <div class="header__top">
-          <LogoName color="#ffffff" />
-          <div class="header__button">
-            <img src="/menu-btn.png" alt="" />
-          </div>
-        </div>
+        
+        <Header />
 
         <div class="promo">
           <span class="promo__title">Качественное и безопасное лечение зубов в ДентАлМакс</span>
@@ -33,7 +31,7 @@ import FidbackSlider from '@/entities/FidbackSlider.vue';
       <div class="form">
         <Button>Записаться на приём</Button>
       </div>
-    </div>
+    </div> -->
     <Information 
       title="Почему нам доверяют свою улыбку?" 
       text="Забота о здоровье начинается с качественной стоматологии. Мы обеспечиваем безопасное и
