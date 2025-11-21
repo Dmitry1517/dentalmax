@@ -7,6 +7,8 @@ import Twogis from '@/shared/icons/Twogis.vue';
 import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
 import FooterHome from '@/entities/FooterHome.vue'
 import TextSlider from '@/entities/TextSlider.vue';
+import SpecialistSlider from '@/entities/SpecialistSlider.vue';
+import FidbackSlider from '@/entities/FidbackSlider.vue';
 </script>
 
 <template>
@@ -40,7 +42,6 @@ import TextSlider from '@/entities/TextSlider.vue';
       color="#000"
     />
 
-    <!-- <div style="padding: 20px; color: red">Здесь будет слайдер</div> -->
     <TextSlider />
 
     <Information 
@@ -71,7 +72,8 @@ import TextSlider from '@/entities/TextSlider.vue';
         color="#fff"
       />
       
-      <div style="padding: 20px; color: red">Здесь будет слайдер</div>
+      <!-- <div style="padding: 20px; color: red">Здесь будет слайдер</div> -->
+      <SpecialistSlider />
     </div>
 
     <div class="fidback">
@@ -82,7 +84,8 @@ import TextSlider from '@/entities/TextSlider.vue';
           Познакомьтесь с нашими высококвалифицированными специалистами.
         </span>
       </div>
-      <div style="padding: 20px; color: red">Здесь будет слайдер</div>
+      <FidbackSlider />
+      <!-- <div style="padding: 20px; color: red">Здесь будет слайдер</div> -->
     </div>
 
     <div class="adress">

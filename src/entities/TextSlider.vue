@@ -1,267 +1,326 @@
 <script setup>
-import ArrowLeft from '@/shared/icons/ArrowLeft.vue';
-import ArrowRight from '@/shared/icons/ArrowRight.vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import ArrowLeft from '@/shared/icons/ArrowLeft.vue'
+import ArrowRight from '@/shared/icons/ArrowRight.vue'
 
-class Slider {
-    constructor() {
-        this.slider = document.getElementById('slider');
-        this.prevBtn = document.getElementById('prevBtn');
-        this.nextBtn = document.getElementById('nextBtn');
-        this.currentSlide = 0;
-        this.slides = document.querySelectorAll('.slide');
-        this.totalSlides = this.slides.length;
-        
-        this.init();
-    }
-    
-    init() {
-        this.prevBtn.addEventListener('click', () => this.prevSlide());
-        this.nextBtn.addEventListener('click', () => this.nextSlide());
-        
-        // Добавляем обработчики для свайпов на мобильных
-        this.addSwipeSupport();
-        
-        this.updateSlider();
-    }
-    
-    nextSlide() {
-        this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-        this.updateSlider();
-    }
-    
-    prevSlide() {
-        this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-        this.updateSlider();
-    }
-    
-    updateSlider() {
-        const slideWidth = 100; // 100% ширины контейнера
-        const translateX = -this.currentSlide * slideWidth;
-        this.slider.style.transform = `translateX(${translateX}%)`;
-    }
-    
-    addSwipeSupport() {
-        let startX = 0;
-        let endX = 0;
-        
-        this.slider.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
-        
-        this.slider.addEventListener('touchend', (e) => {
-            endX = e.changedTouches[0].clientX;
-            this.handleSwipe(startX, endX);
-        });
-    }
-    
-    handleSwipe(startX, endX) {
-        const swipeThreshold = 50;
-        const diff = startX - endX;
-        
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                this.nextSlide();
-            } else {
-                this.prevSlide();
-            }
-        }
-    }
-}
-        
-// Автоматическое переключение между слайдером и сеткой при изменении размера окна
-function handleResize() {
-    const sliderContainer = document.querySelector('.slider-container');
-    const gridContainer = document.getElementById('gridContainer');
-    const width = window.innerWidth;
-    
-    if (width < 537) {
-        sliderContainer.style.display = 'block';
-        gridContainer.style.display = 'none';
-    } else {
-        sliderContainer.style.display = 'none';
-        gridContainer.style.display = 'grid';
-    }
+// Данные слайдов
+const slidesData = ref([
+  {
+    title: 'Современное оборудование',
+    text: 'Мы проводим безопасное и комфортное лечение на оборудовании, которое отвечает строгим медицинским стандартам. Это залог точной диагностики и высоких результатов.'
+  },
+  {
+    title: 'Слайд 2',
+    text: 'Описание второго слайда'
+  },
+  {
+    title: 'Слайд 3', 
+    text: 'Описание третьего слайда'
+  },
+  {
+    title: 'Слайд 4',
+    text: 'Описание четвертого слайда'
+  },
+  {
+    title: 'Слайд 5',
+    text: 'Описание пятого слайда'
+  },
+  {
+    title: 'Слайд 6',
+    text: 'Описание шестого слайда'
+  }
+])
+
+// Refs
+const windowWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1200)
+const swiperInstance = ref(null)
+const isMobile = computed(() => windowWidth.value < 537)
+
+// Swiper modules
+const modules = [Navigation]
+
+// Methods
+const onSwiper = (swiper) => {
+  swiperInstance.value = swiper
 }
 
-// Инициализация
-document.addEventListener('DOMContentLoaded', () => {
-    new Slider();
-    handleResize();
-    window.addEventListener('resize', handleResize);
-});
+const slideNext = () => {
+  if (swiperInstance.value) {
+    swiperInstance.value.slideNext()
+  }
+}
 
+const slidePrev = () => {
+  if (swiperInstance.value) {
+    swiperInstance.value.slidePrev()
+  }
+}
 
+const handleResize = () => {
+  windowWidth.value = window.innerWidth
+}
+
+// Lifecycle
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    window.addEventListener('resize', handleResize)
+  }
+})
+
+onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('resize', handleResize)
+  }
+})
 </script>
 
 <template>
-    <div class="container">
-        
-        <!-- Слайдер для мобильных -->
-        <div class="slider-container">
-            <div class="slider" id="slider">
-                <div class="slide">
-                    <div class="slide-content">
-                        <span class="slide-content__title">Современное оборудование</span>
-                        <span class="slide-content__text">
-                            Мы проводим безопасное и комфортное лечение на оборудовании, которое отвечает строгим медецинским
-                            стандартам. Это залог точной диагностики и высоких результатов.
-                        </span>
-                    </div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">Слайд 2</div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">Слайд 3</div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">Слайд 4</div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">Слайд 5</div>
-                </div>
-                <div class="slide">
-                    <div class="slide-content">Слайд 6</div>
-                </div>
-            </div>
-            
-            <div class="slider-arrows">
-                <div class="arrow prev" id="prevBtn"><ArrowLeft /></div>
-                <div class="arrow next" id="nextBtn"><ArrowRight /></div>
-            </div>
-        </div>
-        
-        <!-- Grid сетка для планшетов и десктопа -->
-        <div class="grid-container" id="gridContainer">
-            <div class="grid-item">Элемент 1</div>
-            <div class="grid-item">Элемент 2</div>
-            <div class="grid-item">Элемент 3</div>
-            <div class="grid-item">Элемент 4</div>
-            <div class="grid-item">Элемент 5</div>
-            <div class="grid-item">Элемент 6</div>
-        </div>
+  <div class="container">
+    <!-- Слайдер для мобильных -->
+    <div v-if="isMobile" class="slider-container">
+      <swiper
+        :modules="modules"
+        :slides-per-view="1"
+        :space-between="20"
+        :loop="true"
+        class="mobile-slider"
+        @swiper="onSwiper"
+      >
+        <swiper-slide
+          v-for="(slide, index) in slidesData"
+          :key="index"
+          class="slide"
+        >
+          <div class="slide-content">
+            <span class="slide-content__title">{{ slide.title }}</span>
+            <span class="slide-content__text">{{ slide.text }}</span>
+          </div>
+        </swiper-slide>
+      </swiper>
+      
+      <div class="slider-arrows">
+        <button class="arrow prev" @click="slidePrev">
+          <ArrowLeft />
+        </button>
+        <button class="arrow next" @click="slideNext">
+          <ArrowRight />
+        </button>
+      </div>
     </div>
+    
+    <!-- Grid сетка для планшетов и десктопа -->
+    <div v-else class="grid-container">
+      <div
+        v-for="(item, index) in slidesData"
+        :key="index"
+        class="grid-item"
+      >
+        <div class="slide-content">
+          <span class="slide-content__title">{{ item.title }}</span>
+          <span class="slide-content__text">{{ item.text }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
-<style>
+<style scoped>
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* Стили для слайдера (мобильная версия) */
 .slider-container {
-    position: relative;
-    overflow: hidden;
-    padding: 40px 0px;
+  position: relative;
+  padding: 40px 0;
 }
 
-.slider {
-    display: flex;
-    transition: transform 0.3s ease;
+.mobile-slider {
+  width: 100%;
 }
 
 .slide {
-    flex: 0 0 100%;
-    min-width: 100%;
-    padding: 15px;
+  padding: 0 20px;
 }
 
 .slide-content {
-    border-radius: #383b68;
-    background: #fff;
-    border-radius: 20px;
-    border: 2px solid #383b68;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+  border-radius: 20px;
+  background: #fff;
+  border: 2px solid #383b68;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 40px 20px;
+  min-height: 300px;
 }
 
+.slide-content__title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #383b68;
+  border-bottom: 1px solid #383b68;
+  padding-bottom: 30px;
+  width: 100%;
+}
 
+.slide-content__text {
+  text-align: center;
+  font-size: 15px;
+  color: #383b68;
+  line-height: 1.5;
+}
 
 /* Стили для стрелок */
 .slider-arrows {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 20px;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.arrow:hover {
+  transform: scale(1.1);
 }
 
 /* Стили для grid сетки (планшет и десктоп) */
 .grid-container {
-    display: none;
-    gap: 20px;
+  display: grid;
+  gap: 30px;
+  padding: 40px 0;
 }
 
-.grid-item {
-    background: #f0f0f0;
-    border-radius: 10px;
-    padding: 30px 20px;
-    text-align: center;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: bold;
+.grid-item .slide-content {
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Медиа-запросы */
+.grid-item .slide-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(56, 59, 104, 0.15);
+}
+
+/* Медиа-запросы для планшета */
 @media (min-width: 537px) and (max-width: 1079px) {
-    .slider-container {
-        display: none;
-    }
-    
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .slide-content {
+    padding: 30px 20px;
+    min-height: 280px;
+  }
+  
+  .slide-content__title {
+    font-size: 18px;
+    padding-bottom: 20px;
+  }
+  
+  .slide-content__text {
+    font-size: 14px;
+  }
 }
 
+/* Медиа-запросы для десктопа */
 @media (min-width: 1080px) {
-    .slider-container {
-        display: none;
-    }
-    
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .slide-content {
+    padding: 40px 25px;
+    min-height: 320px;
+  }
+  
+  .slide-content__title {
+    font-size: 20px;
+    padding-bottom: 25px;
+  }
+  
+  .slide-content__text {
+    font-size: 15px;
+  }
 }
 
-/* Резиновая верстка для мобильных */
-@media (max-width: 536px) {
-    .slide {
-        padding: 0px 20px;
-    }
-    
-    .slide-content {
-        padding: 40px 20px;
-    }
-
-    .slide-content__title {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        color: #383b68;
-        border-bottom: 1px solid #383b68;
-        padding-bottom: 30px;
-        width: 100%;
-    }
-
-    .slide-content__text {
-        text-align: center;
-        font-size: 15px;
-        color: #383b68;
-    }
-    
+/* Большие десктопы */
+@media (min-width: 1200px) {
+  .slide-content {
+    padding: 50px 30px;
+    min-height: 350px;
+  }
+  
+  .slide-content__title {
+    font-size: 22px;
+  }
+  
+  .slide-content__text {
+    font-size: 16px;
+  }
 }
 
+/* Улучшения для очень маленьких мобильных */
 @media (max-width: 375px) {
-    .slide-content {
-        height: 120px;
-        font-size: 14px;
-        padding: 15px 10px;
-    }
+  .slide {
+    padding: 0 15px;
+  }
+  
+  .slide-content {
+    padding: 30px 15px;
+    min-height: 280px;
+    gap: 20px;
+  }
+  
+  .slide-content__title {
+    font-size: 18px;
+    padding-bottom: 20px;
+  }
+  
+  .slide-content__text {
+    font-size: 14px;
+  }
+  
+  .slider-arrows {
+    gap: 40px;
+  }
+}
+
+/* Ландшафтная ориентация на мобильных */
+@media (max-width: 536px) and (orientation: landscape) {
+  .slide-content {
+    min-height: 250px;
+    padding: 25px 20px;
+  }
+  
+  .slide-content__title {
+    font-size: 18px;
+    padding-bottom: 15px;
+  }
+  
+  .slide-content__text {
+    font-size: 14px;
+  }
+}
+
+/* Скрываем стандартную навигацию Swiper */
+:deep(.swiper-button-prev),
+:deep(.swiper-button-next) {
+  display: none !important;
 }
 </style>
