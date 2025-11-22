@@ -11,28 +11,28 @@ import ArrowRight from '@/shared/icons/ArrowRight.vue'
 const slidesData = ref([
   {
     title: 'Современное оборудование',
-    text: 'Мы проводим безопасное и комфортное лечение на оборудовании, которое отвечает строгим медицинским стандартам. Это залог точной диагностики и высоких результатов.'
+    text: 'Мы проводим безопасное и комфортное лечение на оборудовании, которое отвечает строгим медицинским стандартам. Это залог точной диагностики и высоких результатов.',
   },
   {
-    title: 'Слайд 2',
-    text: 'Описание второго слайда'
+    title: 'Опытные врачи',
+    text: 'Наша команда - это специалисты с многолетним опытом, которые постоянно совершенствуют свои знания и навыки. Мы готовы решить сложные стоматологические проблемы.',
   },
   {
-    title: 'Слайд 3', 
-    text: 'Описание третьего слайда'
+    title: 'Индивидуальный подход',
+    text: 'Для каждого пациента мы разрабатываем персональный план лечения, учитывая пожелания по срокам, бюджету и ожидаемому результату.',
   },
   {
-    title: 'Слайд 4',
-    text: 'Описание четвертого слайда'
+    title: 'Безболезненное лечение',
+    text: 'Мы используем современные сертифицированные анестетики, чтобы ваше лечение прошло без боли и неприятных ощущений. Ваш комфорт - наш приоритет.',
   },
   {
-    title: 'Слайд 5',
-    text: 'Описание пятого слайда'
+    title: 'Гарантия качества',
+    text: 'Мы уверены в качестве своей работы и предоставляем официальную гарантию на протезирование, имплантацию и лечение зубов.',
   },
   {
-    title: 'Слайд 6',
-    text: 'Описание шестого слайда'
-  }
+    title: 'Уютная атмосфера',
+    text: 'В нашей клинике царит доброжелательная и спокойная обстановка. Для нас важно, чтобы вы чувствовали себя спокойно и были уверены в нашей поддержке на каждом этапе лечения.',
+  },
 ])
 
 // Refs
@@ -90,18 +90,14 @@ onUnmounted(() => {
         class="mobile-slider"
         @swiper="onSwiper"
       >
-        <swiper-slide
-          v-for="(slide, index) in slidesData"
-          :key="index"
-          class="slide"
-        >
+        <swiper-slide v-for="(slide, index) in slidesData" :key="index" class="slide">
           <div class="slide-content">
             <span class="slide-content__title">{{ slide.title }}</span>
             <span class="slide-content__text">{{ slide.text }}</span>
           </div>
         </swiper-slide>
       </swiper>
-      
+
       <div class="slider-arrows">
         <button class="arrow prev" @click="slidePrev">
           <ArrowLeft />
@@ -111,14 +107,10 @@ onUnmounted(() => {
         </button>
       </div>
     </div>
-    
+
     <!-- Grid сетка для планшетов и десктопа -->
     <div v-else class="grid-container">
-      <div
-        v-for="(item, index) in slidesData"
-        :key="index"
-        class="grid-item"
-      >
+      <div v-for="(item, index) in slidesData" :key="index" class="grid-item">
         <div class="slide-content">
           <span class="slide-content__title">{{ item.title }}</span>
           <span class="slide-content__text">{{ item.text }}</span>
@@ -209,7 +201,9 @@ onUnmounted(() => {
 
 .grid-item .slide-content {
   height: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .grid-item .slide-content:hover {
@@ -222,17 +216,17 @@ onUnmounted(() => {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .slide-content {
     padding: 30px 20px;
     min-height: 280px;
   }
-  
+
   .slide-content__title {
     font-size: 18px;
     padding-bottom: 20px;
   }
-  
+
   .slide-content__text {
     font-size: 14px;
   }
@@ -243,17 +237,17 @@ onUnmounted(() => {
   .grid-container {
     grid-template-columns: repeat(3, 1fr);
   }
-  
+
   .slide-content {
     padding: 40px 25px;
     min-height: 320px;
   }
-  
+
   .slide-content__title {
     font-size: 20px;
     padding-bottom: 25px;
   }
-  
+
   .slide-content__text {
     font-size: 15px;
   }
@@ -265,11 +259,11 @@ onUnmounted(() => {
     padding: 50px 30px;
     min-height: 350px;
   }
-  
+
   .slide-content__title {
     font-size: 22px;
   }
-  
+
   .slide-content__text {
     font-size: 16px;
   }
@@ -280,22 +274,22 @@ onUnmounted(() => {
   .slide {
     padding: 0 15px;
   }
-  
+
   .slide-content {
     padding: 30px 15px;
     min-height: 280px;
     gap: 20px;
   }
-  
+
   .slide-content__title {
     font-size: 18px;
     padding-bottom: 20px;
   }
-  
+
   .slide-content__text {
     font-size: 14px;
   }
-  
+
   .slider-arrows {
     gap: 40px;
   }
@@ -307,12 +301,12 @@ onUnmounted(() => {
     min-height: 250px;
     padding: 25px 20px;
   }
-  
+
   .slide-content__title {
     font-size: 18px;
     padding-bottom: 15px;
   }
-  
+
   .slide-content__text {
     font-size: 14px;
   }

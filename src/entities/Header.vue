@@ -1,5 +1,6 @@
 <script setup>
 import LogoName from '@/shared/components/LogoName.vue'
+import Button from '@/shared/components/Button.vue'
 </script>
 
 <template>
@@ -30,12 +31,26 @@ import LogoName from '@/shared/components/LogoName.vue'
         протезирования, с использованием передовых технологий и материалов.
       </span>
     </div>
+    <div class="form">
+      <Button>Записаться на приём</Button>
+    </div>
+    <div class="promo-desctop">
+      <div class="promo-desctop__card">
+        <span class="promo-desctop__title"
+          >Качественное и безопасное лечение зубов в ДентАлМакс</span
+        >
+        <span class="promo-desctop__text">
+          Мы предлагаем полный спектр стоматологических услуг, от профилактики до сложного
+          протезирования, с использованием передовых технологий и материалов.
+        </span>
+        <Button>Записаться на приём</Button>
+      </div>
+      <div class="promo-desctop__img"><img src="/tooth-all.png" alt="tooth" /></div>
+    </div>
   </header>
-  
 </template>
 
 <style>
-
 .header {
   background-image: url('/bg.png');
   width: 100%;
@@ -105,8 +120,75 @@ import LogoName from '@/shared/components/LogoName.vue'
   background: none;
 }
 
-.nav, .login {
+.nav,
+.login {
   display: none;
+}
+
+.form {
+  background-image: url('/tooth-all.png');
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  /* top: 45%; */
+  padding: 0px 20px;
+  background-repeat: no-repeat;
+  background-position-x: right;
+}
+
+.promo-desctop {
+  display: none;
+  padding: 30px 20px;
+}
+
+.promo-desctop__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px 15px;
+  text-align: center;
+  align-self: flex-start;
+}
+
+.promo-desctop__title {
+  font-size: 18px;
+}
+
+.promo-desctop__text {
+  font-size: 12px;
+}
+
+.promo-desctop__img img {
+  width: 280px;
+  height: 280px;
+}
+
+@media all and (min-width: 370px) {
+  .form {
+    top: 36%;
+  }
+}
+
+@media all and (min-width: 390px) {
+  .form {
+    top: 30%;
+  }
+}
+
+@media all and (min-width: 536px) {
+  .form,
+  .promo {
+    display: none;
+  }
+  .promo-desctop {
+    display: flex;
+  }
 }
 
 @media all and (min-width: 768px) {

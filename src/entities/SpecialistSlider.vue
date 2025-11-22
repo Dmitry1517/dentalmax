@@ -1,96 +1,38 @@
-<template>
-  <div class="slider-component">
-    
-    <!-- Slider main container -->
-    <div class="slider-wrapper">
-      <!-- Левая стрелка для мобильных -->
-      <button 
-        v-if="showSideArrows" 
-        class="arrow-side left" 
-        @click="slidePrev"
-      >
-        ←
-      </button>
-      
-      <swiper
-        :modules="modules"
-        :slides-per-view="slidesPerView"
-        :space-between="spaceBetween"
-        :navigation="navigation"
-        :pagination="{ clickable: true }"
-        :loop="true"
-        class="custom-swiper"
-        @swiper="onSwiper"
-      >
-        <!-- Slides -->
-        <swiper-slide
-          v-for="(slide, index) in slidesData"
-          :key="index"
-        >
-          <div class="slide-content">
-            <div class="slide-image">{{ slide.image }}</div>
-            <div class="slide-caption">{{ slide.caption }}</div>
-          </div>
-        </swiper-slide>
-      </swiper>
-      
-      <!-- Правая стрелка для мобильных -->
-      <button 
-        v-if="showSideArrows" 
-        class="arrow-side right" 
-        @click="slideNext"
-      >
-        →
-      </button>
-      
-      <!-- Навигация для планшета и десктопа -->
-      <div v-if="showBottomNavigation" class="bottom-navigation">
-        <div class="swiper-pagination"></div>
-        <div class="bottom-arrows">
-          <button class="arrow-bottom prev" @click="slidePrev">←</button>
-          <button class="arrow-bottom next" @click="slideNext">→</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
-// Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue'
-// Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-// import required modules
 import { Navigation, Pagination } from 'swiper/modules'
+import ArrowRightWhite from '@/shared/icons/ArrowRightWhite.vue'
+import ArrowLeftWhite from '@/shared/icons/ArrowLeftWhite.vue'
 
-// Props
 const props = defineProps({
   slides: {
     type: Array,
     default: () => [
-      { image: 'Фото 1', caption: 'Красивый закат на море' },
+      {
+        image: 'Фото 1',
+        caption:
+          'Фамилия Имя Отчество                                                                                                                       ',
+      },
       { image: 'Фото 2', caption: 'Горный пейзаж' },
       { image: 'Фото 3', caption: 'Городская архитектура' },
       { image: 'Фото 4', caption: 'Лесная тропинка' },
       { image: 'Фото 5', caption: 'Ночной город' },
       { image: 'Фото 6', caption: 'Зимний лес' },
       { image: 'Фото 7', caption: 'Весенний сад' },
-      { image: 'Фото 8', caption: 'Пустынный пейзаж' }
-    ]
-  }
+      { image: 'Фото 8', caption: 'Пустынный пейзаж' },
+    ],
+  },
 })
 
-// Swiper modules
 const modules = [Navigation, Pagination]
 
-// Refs
 const windowWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1200)
 const swiperInstance = ref(null)
 
-// Computed properties
 const slidesData = computed(() => props.slides)
 
 const slidesPerView = computed(() => {
@@ -118,7 +60,6 @@ const navigation = computed(() => {
   }
 })
 
-// Methods
 const onSwiper = (swiper) => {
   swiperInstance.value = swiper
 }
@@ -139,7 +80,6 @@ const handleResize = () => {
   windowWidth.value = window.innerWidth
 }
 
-// Lifecycle
 onMounted(() => {
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', handleResize)
@@ -153,13 +93,52 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<template>
+  <div class="slider-component">
+    <!-- Slider main container -->
+    <div class="slider-wrapper">
+      <!-- Левая стрелка для мобильных -->
+      <button v-if="showSideArrows" class="arrow-side left" @click="slidePrev">
+        <ArrowLeftWhite />
+      </button>
 
+      <swiper
+        :modules="modules"
+        :slides-per-view="slidesPerView"
+        :space-between="spaceBetween"
+        :navigation="navigation"
+        :pagination="{ clickable: true }"
+        :loop="true"
+        class="custom-swiper"
+        @swiper="onSwiper"
+      >
+        <!-- Slides -->
+        <swiper-slide v-for="(slide, index) in slidesData" :key="index">
+          <div class="slide-content">
+            <div class="slide-image">{{ slide.image }}</div>
+            <div class="slide-caption">{{ slide.caption }}</div>
+          </div>
+        </swiper-slide>
+      </swiper>
+
+      <!-- Правая стрелка для мобильных -->
+      <button v-if="showSideArrows" class="arrow-side right" @click="slideNext">
+        <ArrowRightWhite />
+      </button>
+
+      <!-- Навигация для планшета и десктопа -->
+      <div v-if="showBottomNavigation" class="bottom-navigation">
+        <div class="swiper-pagination"></div>
+        <div class="bottom-arrows">
+          <button class="arrow-bottom prev" @click="slidePrev">←</button>
+          <button class="arrow-bottom next" @click="slideNext">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
 .slider-component {
   max-width: 1200px;
   margin: 0 auto;
@@ -193,10 +172,8 @@ h1 {
 
 /* Slide content styles */
 .slide-content {
-  background: white;
-  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   height: 100%;
   margin: 5px;
@@ -208,8 +185,9 @@ h1 {
 
 .slide-image {
   width: 100%;
-  height: 150px;
-  background: linear-gradient(45deg, #667eea, #764ba2);
+  height: 320px;
+  border-radius: 12px;
+  background: #f1f1f1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -221,9 +199,8 @@ h1 {
 .slide-caption {
   padding: 15px;
   text-align: center;
-  font-size: 14px;
-  color: #333;
-  background: white;
+  font-size: 17px;
+  color: #fff;
   line-height: 1.4;
 }
 
@@ -242,7 +219,7 @@ h1 {
   font-size: 18px;
   transition: all 0.3s ease;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   z-index: 10;
 }
 
@@ -294,7 +271,7 @@ h1 {
   justify-content: center;
   font-size: 18px;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .arrow-bottom:hover {
@@ -342,26 +319,26 @@ h1 {
     display: block;
     padding-bottom: 80px; /* Место для навигации */
   }
-  
+
   .arrow-side {
     display: none;
   }
-  
+
   .bottom-navigation {
     display: flex;
   }
-  
+
   .slide-content {
     border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin: 10px;
   }
-  
+
   .slide-image {
-    height: 180px;
+    height: 320px;
     font-size: 18px;
   }
-  
+
   .slide-caption {
     padding: 20px;
     font-size: 16px;
@@ -371,20 +348,20 @@ h1 {
 /* Десктопная версия (1080px+) */
 @media (min-width: 1080px) {
   .slide-image {
-    height: 200px;
+    height: 320px;
   }
-  
+
   .slide-caption {
     padding: 25px;
     font-size: 17px;
   }
-  
+
   .arrow-bottom {
     width: 50px;
     height: 50px;
     font-size: 20px;
   }
-  
+
   .bottom-arrows {
     gap: 25px;
   }
@@ -393,7 +370,7 @@ h1 {
 /* Большие десктопы (1200px+) */
 @media (min-width: 1200px) {
   .slide-image {
-    height: 220px;
+    height: 320px;
     font-size: 20px;
   }
 }
@@ -403,18 +380,18 @@ h1 {
   .slider-wrapper {
     gap: 8px;
   }
-  
+
   .arrow-side {
     width: 35px;
     height: 35px;
     font-size: 16px;
   }
-  
+
   .slide-image {
-    height: 130px;
+    height: 320px;
     font-size: 14px;
   }
-  
+
   .slide-caption {
     padding: 12px;
     font-size: 13px;
@@ -425,7 +402,7 @@ h1 {
   .slider-wrapper {
     gap: 5px;
   }
-  
+
   .arrow-side {
     width: 30px;
     height: 30px;
@@ -436,9 +413,9 @@ h1 {
 /* Ландшафтная ориентация на мобильных */
 @media (max-width: 536px) and (orientation: landscape) {
   .slide-image {
-    height: 120px;
+    height: 320px;
   }
-  
+
   .slide-caption {
     padding: 10px;
     font-size: 13px;
