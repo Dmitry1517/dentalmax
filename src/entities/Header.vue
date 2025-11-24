@@ -140,6 +140,8 @@ import Button from '@/shared/components/Button.vue'
 }
 
 .promo-desctop {
+  max-width: 1280px;
+  margin: 0 auto;
   display: none;
   padding: 30px 20px;
 }
@@ -244,7 +246,7 @@ import Button from '@/shared/components/Button.vue'
   }
 
   .header__top {
-    padding: 25px 15px;
+    padding: 20px;
   }
 }
 </style>

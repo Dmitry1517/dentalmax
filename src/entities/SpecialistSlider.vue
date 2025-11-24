@@ -145,9 +145,9 @@ onUnmounted(() => {
 
 <style scoped>
 .slider-component {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 10px;
   font-family: Arial, sans-serif;
 }
 
@@ -373,8 +373,9 @@ h1 {
 
 /* Десктопная версия (1080px+) */
 @media (min-width: 1080px) {
+
   .slide-image {
-    height: 320px;
+    height: 530px;
   }
 
   .slide-caption {
@@ -401,12 +402,17 @@ h1 {
   .bottom-navigation {
     bottom: 0;
   }
+
+  .slide-spec {
+    bottom: 105px;
+    font-size: 20px;
+  }
 }
 
 /* Большие десктопы (1200px+) */
 @media (min-width: 1200px) {
   .slide-image {
-    height: 320px;
+    height: 530px;
     font-size: 20px;
   }
 }

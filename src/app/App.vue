@@ -37,7 +37,6 @@ import Header from '@/entities/Header.vue';
       text="Забота о здоровье начинается с качественной стоматологии. Мы обеспечиваем безопасное и
         эффективное лечение, используя новейшие технологии, современные материалы и оборудование.
         Наша цель - сделать заботу о вашей улыбке доступной и комфортной."
-      color="#000"
     />
 
     <TextSlider />
@@ -45,7 +44,6 @@ import Header from '@/entities/Header.vue';
     <Information 
       title="Полный спектр стоматологических услуг" 
       text="Мы предлагаем полный все виды стоматологической помощи для взрослых и детей."
-      color="#000"
     />
 
     <div class="services">
@@ -64,12 +62,12 @@ import Header from '@/entities/Header.vue';
 
     <div class="specialists">
 
-      <Information 
-        title="Наша команда - ваша здоровая улыбка" 
-        text="Познакомьтесь с нашими высококвалифицированными специалистами."
-        color="#fff"
-      />
-      
+
+      <div class="specialists__information">
+          <span class="specialists__information-title">Наша команда - ваша здоровая улыбка</span>
+          <span class="specialists__information-text">Познакомьтесь с нашими высококвалифицированными специалистами.</span>
+      </div>
+
       <!-- <div style="padding: 20px; color: red">Здесь будет слайдер</div> -->
       <SpecialistSlider />
     </div>
@@ -101,4 +99,6 @@ import Header from '@/entities/Header.vue';
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

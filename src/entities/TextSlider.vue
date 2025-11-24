@@ -122,7 +122,7 @@ onUnmounted(() => {
 
 <style scoped>
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -137,9 +137,9 @@ onUnmounted(() => {
   width: 100%;
 }
 
-.slide {
+/* .slide {
   padding: 0 20px;
-}
+} */
 
 .slide-content {
   border-radius: 20px;
@@ -271,9 +271,9 @@ onUnmounted(() => {
 
 /* Улучшения для очень маленьких мобильных */
 @media (max-width: 375px) {
-  .slide {
+  /* .slide {
     padding: 0 15px;
-  }
+  } */
 
   .slide-content {
     padding: 30px 15px;
