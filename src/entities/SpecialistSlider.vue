@@ -7,6 +7,9 @@ import 'swiper/css/pagination'
 import { Navigation, Pagination } from 'swiper/modules'
 import ArrowRightWhite from '@/shared/icons/ArrowRightWhite.vue'
 import ArrowLeftWhite from '@/shared/icons/ArrowLeftWhite.vue'
+import ArrowLink from '@/shared/icons/ArrowLink.vue'
+import ArrowLeftStr from '@/shared/icons/ArrowLeftStr.vue'
+import ArrowRightStr from '@/shared/icons/ArrowRightStr.vue'
 
 const props = defineProps({
   slides: {
@@ -15,15 +18,15 @@ const props = defineProps({
       {
         image: 'Фото 1',
         caption:
-          'Фамилия Имя Отчество                                                                                                                       ',
+          'Фамилия Имя Отчество',
       },
-      { image: 'Фото 2', caption: 'Горный пейзаж' },
-      { image: 'Фото 3', caption: 'Городская архитектура' },
-      { image: 'Фото 4', caption: 'Лесная тропинка' },
-      { image: 'Фото 5', caption: 'Ночной город' },
-      { image: 'Фото 6', caption: 'Зимний лес' },
-      { image: 'Фото 7', caption: 'Весенний сад' },
-      { image: 'Фото 8', caption: 'Пустынный пейзаж' },
+      { image: 'Фото 2', caption: 'Фамилия Имя Отчество' },
+      { image: 'Фото 3', caption: 'Фамилия Имя Отчество' },
+      { image: 'Фото 4', caption: 'Фамилия Имя Отчество' },
+      { image: 'Фото 5', caption: 'Фамилия Имя Отчество' },
+      { image: 'Фото 6', caption: 'Фамилия Имя Отчество' },
+      { image: 'Фото 7', caption: 'Фамилия Имя Отчество' },
+      { image: 'Фото 8', caption: 'Фамилия Имя Отчество' },
     ],
   },
 })
@@ -117,6 +120,8 @@ onUnmounted(() => {
           <div class="slide-content">
             <div class="slide-image">{{ slide.image }}</div>
             <div class="slide-caption">{{ slide.caption }}</div>
+            <div class="slide-spec">Терапевт</div>
+            <ArrowLink class="slide-link" />
           </div>
         </swiper-slide>
       </swiper>
@@ -130,8 +135,8 @@ onUnmounted(() => {
       <div v-if="showBottomNavigation" class="bottom-navigation">
         <div class="swiper-pagination"></div>
         <div class="bottom-arrows">
-          <button class="arrow-bottom prev" @click="slidePrev">←</button>
-          <button class="arrow-bottom next" @click="slideNext">→</button>
+          <button class="arrow-bottom prev" @click="slidePrev"><ArrowLeftStr /></button>
+          <button class="arrow-bottom next" @click="slideNext"><ArrowRightStr /></button>
         </div>
       </div>
     </div>
@@ -172,11 +177,28 @@ h1 {
 
 /* Slide content styles */
 .slide-content {
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   height: 100%;
   margin: 5px;
+}
+
+.slide-spec {
+  position: absolute;
+  bottom: 85px;
+  left: 12px;
+  font-size: 15px;
+  border-radius: 3px;
+  padding: 1px 10px;
+  background: #fff;
+}
+
+.slide-link {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
 }
 
 .slide-content:hover {
@@ -202,6 +224,7 @@ h1 {
   font-size: 17px;
   color: #fff;
   line-height: 1.4;
+  margin-top: 20px;
 }
 
 /* Боковые стрелки для мобильных */
@@ -221,6 +244,7 @@ h1 {
   flex-shrink: 0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   z-index: 10;
+  
 }
 
 .arrow-side:hover {
@@ -230,10 +254,12 @@ h1 {
 
 .arrow-side.left {
   order: 1;
+  transform: translateY(-30px);
 }
 
 .arrow-side.right {
   order: 3;
+  transform: translateY(-30px);
 }
 
 .custom-swiper {
@@ -284,6 +310,7 @@ h1 {
   position: relative !important;
   bottom: auto !important;
   margin-top: 0;
+  display: none;
 }
 
 :deep(.swiper-pagination-bullet) {
@@ -330,7 +357,6 @@ h1 {
 
   .slide-content {
     border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin: 10px;
   }
 
@@ -363,7 +389,17 @@ h1 {
   }
 
   .bottom-arrows {
-    gap: 25px;
+    gap: 70px;
+  }
+
+  :deep(.swiper-pagination) {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .bottom-navigation {
+    bottom: 0;
   }
 }
 

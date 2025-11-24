@@ -60,7 +60,7 @@
 
 .specialists {
   background: #092147;
-  padding: 50px 0px;
+  padding: 50px 0px 10px 0px;
 }
 
 .fidback {
@@ -116,3 +116,10 @@
     font-size: 25px;
   }
 }
+
+@media all and (min-width: 1080px) {
+  .specialists {
+    background: #fff;
+  }
+}
+

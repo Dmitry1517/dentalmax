@@ -133,7 +133,7 @@ import Button from '@/shared/components/Button.vue'
   display: flex;
   align-items: center;
   position: absolute;
-  /* top: 45%; */
+  top: 45%;
   padding: 0px 20px;
   background-repeat: no-repeat;
   background-position-x: right;
@@ -169,6 +169,18 @@ import Button from '@/shared/components/Button.vue'
   height: 280px;
 }
 
+@media all and (min-width: 340px) {
+  .form {
+    top: 28%;
+  }
+}
+
+@media all and (min-width: 360px) {
+  .form {
+    top: 32%;
+  }
+}
+
 @media all and (min-width: 370px) {
   .form {
     top: 36%;
@@ -177,7 +189,7 @@ import Button from '@/shared/components/Button.vue'
 
 @media all and (min-width: 390px) {
   .form {
-    top: 30%;
+    top: 28%;
   }
 }
 
