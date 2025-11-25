@@ -1,5 +1,6 @@
 <script setup>
 const {title, text, color} = defineProps({
+    color: String,
     title: String,
     text: String,
     

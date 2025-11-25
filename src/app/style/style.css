@@ -127,6 +127,10 @@
   font-size: 20px;
 }
 
+.fidback__big-icon {
+  display: none;
+}
+
 
 @media all and (min-width: 400px) {
   .promo__title {
@@ -151,5 +155,25 @@
     font-size: 20px;
   }
 
+  .fidback__question {
+    width: 1280px;
+    margin: 0 auto;
+  }
+
+  .fidback__title {
+    font-size: 40px;
+  }
+
+  .fidback__text {
+    font-size: 20px;
+  }
+
+  .fidback__big-icon {
+    display: block;
+  }
+
+  .fidback__small-icon {
+    display: none;
+  }
 }
 

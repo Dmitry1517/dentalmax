@@ -10,6 +10,7 @@ import TextSlider from '@/entities/TextSlider.vue';
 import SpecialistSlider from '@/entities/SpecialistSlider.vue';
 import FidbackSlider from '@/entities/FidbackSlider.vue';
 import Header from '@/entities/Header.vue';
+import TwoGisBig from '@/shared/icons/TwoGisBig.vue';
 </script>
 
 <template>
@@ -75,7 +76,7 @@ import Header from '@/entities/Header.vue';
     <div class="fidback">
       <div class="fidback__question">
         <span class="fidback__title fidback__icon"
-          >Что говорят наши пациенты на <Twogis /></span>
+          >Что говорят наши пациенты на <Twogis class="fidback__small-icon"/><TwoGisBig class="fidback__big-icon" /></span>
         <span class="fidback__text">
           Познакомьтесь с нашими высококвалифицированными специалистами.
         </span>
