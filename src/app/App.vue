@@ -11,6 +11,7 @@ import SpecialistSlider from '@/entities/SpecialistSlider.vue';
 import FidbackSlider from '@/entities/FidbackSlider.vue';
 import Header from '@/entities/Header.vue';
 import TwoGisBig from '@/shared/icons/TwoGisBig.vue';
+import GisCard from '@/shared/components/GisCard.vue';
 </script>
 
 <template>
@@ -92,7 +93,8 @@ import TwoGisBig from '@/shared/icons/TwoGisBig.vue';
         <span class="adress__time">Ежедневно 9:00-20:00</span>
         <span class="adress__tel">+7 950 385 22 11</span>
       </div>
-      <div class="adress__geo">Здесь будет карта</div>
+      <!-- Карта -->
+      <div id="map" style="width:100%; height:210px"></div>
     </div>
 
     <TreatmentPlan />

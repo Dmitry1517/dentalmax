@@ -5,6 +5,18 @@
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vite App</title>
+    <script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+    <script type="text/javascript">
+      var map;
+  
+      DG.then(function () {
+        map = DG.map('map', {
+          center: [51.82991, 107.57996],
+          zoom: 16
+        });
+        DG.marker([51.82991, 107.57996]).addTo(map);
+      });
+    </script>
   </head>
   <body>
     <div id="app"></div>
