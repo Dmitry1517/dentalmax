@@ -78,9 +78,9 @@ import GisCard from '@/shared/components/GisCard.vue';
       <div class="fidback__question">
         <span class="fidback__title fidback__icon"
           >Что говорят наши пациенты на <Twogis class="fidback__small-icon"/><TwoGisBig class="fidback__big-icon" /></span>
-        <span class="fidback__text">
+        <!-- <span class="fidback__text">
           Познакомьтесь с нашими высококвалифицированными специалистами.
-        </span>
+        </span> -->
       </div>
       <FidbackSlider />
       <!-- <div style="padding: 20px; color: red">Здесь будет слайдер</div> -->

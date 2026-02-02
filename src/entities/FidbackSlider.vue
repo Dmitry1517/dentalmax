@@ -3,14 +3,7 @@
     
     <!-- Slider main container -->
     <div class="slider-wrapper">
-      <!-- Левая стрелка для мобильных -->
-      <button 
-        v-if="showSideArrows" 
-        class="arrow-side left" 
-        @click="slidePrev"
-      >
-        ←
-      </button>
+      
       
       <swiper
         :modules="modules"
@@ -28,20 +21,22 @@
           :key="index"
         >
           <div class="slide-content">
-            <div class="slide-image">{{ slide.image }}</div>
+            <div class="slide-image">
+              <img :src="slide.image" alt="Slide Image" />
+            </div>
+            <div class="slide-name">{{ slide.name }}</div>
+            <div class="slide-stars">
+              <!-- {{ slide.stars }} -->
+              <ul>
+                <li><Star /><Star /><Star /><Star /></li>
+              </ul>
+            </div>
             <div class="slide-caption">{{ slide.caption }}</div>
           </div>
         </swiper-slide>
       </swiper>
       
-      <!-- Правая стрелка для мобильных -->
-      <button 
-        v-if="showSideArrows" 
-        class="arrow-side right" 
-        @click="slideNext"
-      >
-        →
-      </button>
+      
       
       <!-- Навигация для планшета и десктопа -->
       <div v-if="showBottomNavigation" class="bottom-navigation">
@@ -51,6 +46,16 @@
           <button class="arrow-bottom next" @click="slideNext">→</button>
         </div>
       </div>
+    </div>
+    <div class="btns-arrows">
+      <!-- Левая стрелка для мобильных -->
+      <button class="arrow-side left" @click="slidePrev">
+        <ArrowLeft />
+      </button>
+      <!-- Правая стрелка для мобильных -->
+      <button class="arrow-side right" @click="slideNext">
+        <ArrowRight />
+      </button>
     </div>
   </div>
 </template>
@@ -65,20 +70,23 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 // import required modules
 import { Navigation, Pagination } from 'swiper/modules'
+import ArrowLeft from '@/shared/icons/ArrowLeft.vue'
+import ArrowRight from '@/shared/icons/ArrowRight.vue'
+import Star from '@/shared/icons/Star.vue'
 
 // Props
 const props = defineProps({
   slides: {
     type: Array,
     default: () => [
-      { image: 'Фото 1', caption: 'Красивый закат на море' },
-      { image: 'Фото 2', caption: 'Горный пейзаж' },
-      { image: 'Фото 3', caption: 'Городская архитектура' },
-      { image: 'Фото 4', caption: 'Лесная тропинка' },
-      { image: 'Фото 5', caption: 'Ночной город' },
-      { image: 'Фото 6', caption: 'Зимний лес' },
-      { image: 'Фото 7', caption: 'Весенний сад' },
-      { image: 'Фото 8', caption: 'Пустынный пейзаж' }
+      { image: '/public/foto-user-fidback.png', name: 'Ангелина', stars: 4, caption: 'Замечательная атмосфера. Проконсультировали по лечению, предложили варианты лечения под мой случай. Через три посещения решили мою проблему. Замечательная клиника рекомендую' },
+      { image: 'Фото 2', name: 'UserName', stars: 4, caption: 'Горный пейзаж' },
+      { image: 'Фото 3', name: 'UserName', stars: 4, caption: 'Городская архитектура' },
+      { image: 'Фото 4', name: 'UserName', stars: 4, caption: 'Лесная тропинка' },
+      { image: 'Фото 5', name: 'UserName', stars: 4, caption: 'Ночной город' },
+      { image: 'Фото 6', name: 'UserName', stars: 4, caption: 'Зимний лес' },
+      { image: 'Фото 7', name: 'UserName', stars: 4, caption: 'Весенний сад' },
+      { image: 'Фото 8', name: 'UserName', stars: 4, caption: 'Пустынный пейзаж' }
     ]
   }
 })
@@ -167,6 +175,14 @@ onUnmounted(() => {
   font-family: Arial, sans-serif;
 }
 
+.btns-arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-top: 20px;
+}
+
 h1 {
   text-align: center;
   margin-bottom: 30px;
@@ -193,13 +209,14 @@ h1 {
 
 /* Slide content styles */
 .slide-content {
-  background: white;
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #BFDBF1;
+  border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  padding: 15px;
   height: 100%;
-  margin: 5px;
 }
 
 .slide-content:hover {
@@ -207,23 +224,29 @@ h1 {
 }
 
 .slide-image {
-  width: 100%;
-  height: 150px;
-  background: linear-gradient(45deg, #667eea, #764ba2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 65px;
+  height: 65px;
   color: white;
   font-size: 16px;
   font-weight: bold;
 }
 
+.slide-name {
+  font-size: 20px;
+}
+
+.slide-stars li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .slide-caption {
-  padding: 15px;
-  text-align: center;
-  font-size: 14px;
+  /* padding: 15px;
+  text-align: center; */
+  font-size: 13px;
   color: #333;
-  background: white;
+  /* background: white; */
   line-height: 1.4;
 }
 
@@ -304,6 +327,7 @@ h1 {
 
 /* Стили для пагинации Swiper */
 :deep(.swiper-pagination) {
+  display: none;
   position: relative !important;
   bottom: auto !important;
   margin-top: 0;
