@@ -5,60 +5,30 @@ import Button from '@/shared/components/Button.vue'
 
 <template>
   <header class="header">
-    <div class="header__top">
-      <LogoName color="#ffffff" />
-      <div class="header__button">
-        <img src="/menu-btn.png" alt="menu" />
-      </div>
-      <div class="nav">
-        <ul class="nav__list">
-          <li class="nav__item">Клиника</li>
-          <li class="nav__item">Услуги</li>
-          <li class="nav__item">Специалисты</li>
-          <li class="nav__item">Отзывы</li>
-        </ul>
-      </div>
-      <div class="login">
-        <button class="button button_notbg">Войти</button>
-        <button class="button">Регистрация</button>
-      </div>
+    
+    <RouterLink to="/" style="text-decoration: none;"><LogoName color="#ffffff" /></RouterLink>
+    <div class="header__button">
+      <img src="/menu-btn.png" alt="menu" />
     </div>
-
-    <div class="promo">
-      <span class="promo__title">Качественное и безопасное лечение зубов в ДентАлМакс</span>
-      <span class="promo__text">
-        Мы предлагаем полный спектр стоматологических услуг, от профилактики до сложного
-        протезирования, с использованием передовых технологий и материалов.
-      </span>
+    <div class="nav">
+      <ul class="nav__list">
+        <RouterLink to="/clinic" class="nav__item">Клиника</RouterLink>
+        <li class="nav__item">Услуги</li>
+        <li class="nav__item">Специалисты</li>
+        <li class="nav__item">Отзывы</li>
+      </ul>
     </div>
-    <div class="form">
-      <Button>Записаться на приём</Button>
+    <div class="login">
+      <button class="button button_notbg">Войти</button>
+      <button class="button">Регистрация</button>
     </div>
-    <div class="promo-desctop">
-      <div class="promo-desctop__card">
-        <span class="promo-desctop__title"
-          >Качественное и безопасное лечение зубов в ДентАлМакс</span
-        >
-        <span class="promo-desctop__text">
-          Мы предлагаем полный спектр стоматологических услуг, от профилактики до сложного
-          протезирования, с использованием передовых технологий и материалов.
-        </span>
-        <Button>Записаться на приём</Button>
-      </div>
-      <div class="promo-desctop__img"><img src="/tooth-all.png" alt="tooth" /></div>
-    </div>
+    
   </header>
 </template>
 
 <style>
 .header {
   background-image: url('/bg.png');
-  width: 100%;
-  height: 525px;
-  object-fit: cover; /* или contain */
-}
-
-.header__top {
   width: 100%;
   padding: 20px 15px;
   display: flex;
@@ -97,6 +67,11 @@ import Button from '@/shared/components/Button.vue'
   color: var(--text-color);
   font-size: 16px;
   cursor: pointer;
+  text-decoration: none;
+}
+
+.nav {
+  display: none;
 }
 
 .login {
@@ -140,6 +115,7 @@ import Button from '@/shared/components/Button.vue'
 }
 
 .promo-desctop {
+  background-image: url('/bg-pic-tooth-desctop.png');
   max-width: 1280px;
   margin: 0 auto;
   display: none;

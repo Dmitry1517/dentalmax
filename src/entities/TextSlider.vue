@@ -133,13 +133,6 @@ onUnmounted(() => {
   padding: 40px 0;
 }
 
-.mobile-slider {
-  width: 100%;
-}
-
-/* .slide {
-  padding: 0 20px;
-} */
 
 .slide-content {
   border-radius: 20px;

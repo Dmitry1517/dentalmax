@@ -1,4 +1,4 @@
-#header {
+/* #header {
   position: relative;
 }
 
@@ -6,7 +6,7 @@
   background-image: url('/bg.png');
   width: 100%;
   height: 525px;
-  object-fit: cover; /* или contain */
+  object-fit: cover; 
 }
 
 .header__top {
@@ -14,7 +14,7 @@
   align-items: center;
   padding: 25px;
   gap: 10px;
-}
+} */
 
 .header__button {
   margin-left: auto;
