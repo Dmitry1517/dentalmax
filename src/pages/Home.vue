@@ -10,6 +10,7 @@ import SpecialistSlider from '@/entities/SpecialistSlider.vue';
 import FidbackSlider from '@/entities/FidbackSlider.vue';
 import TwoGisBig from '@/shared/icons/TwoGisBig.vue';
 import GisCard from '@/shared/components/GisCard.vue';
+
 </script>
 
 <template>

@@ -5,35 +5,41 @@ import Button from '@/shared/components/Button.vue'
 
 <template>
   <header class="header">
-    
-    <RouterLink to="/" style="text-decoration: none;"><LogoName color="#ffffff" /></RouterLink>
-    <div class="header__button">
-      <img src="/menu-btn.png" alt="menu" />
+    <div class="header__inner">
+      <RouterLink to="/" style="text-decoration: none;"><LogoName color="#092147" /></RouterLink>
+      <div class="header__button">
+        <img src="/menu-btn.png" alt="menu" />
+      </div>
+      <div class="nav">
+        <ul class="nav__list">
+          <RouterLink to="/clinic" class="nav__item">Клиника</RouterLink>
+          <li class="nav__item">Услуги</li>
+          <li class="nav__item">Специалисты</li>
+          <li class="nav__item">Отзывы</li>
+        </ul>
+      </div>
+      <div class="login">
+        <button class="button button_notbg">Войти</button>
+        <button class="button">Регистрация</button>
+      </div>
     </div>
-    <div class="nav">
-      <ul class="nav__list">
-        <RouterLink to="/clinic" class="nav__item">Клиника</RouterLink>
-        <li class="nav__item">Услуги</li>
-        <li class="nav__item">Специалисты</li>
-        <li class="nav__item">Отзывы</li>
-      </ul>
-    </div>
-    <div class="login">
-      <button class="button button_notbg">Войти</button>
-      <button class="button">Регистрация</button>
-    </div>
-    
   </header>
 </template>
 
 <style>
 .header {
-  background-image: url('/bg.png');
+  /* background-image: url('/bg.png'); */
   width: 100%;
   padding: 20px 15px;
+  
+}
+
+.header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .logo {
@@ -64,10 +70,11 @@ import Button from '@/shared/components/Button.vue'
 }
 
 .nav__item {
-  color: var(--text-color);
+  color: var(--text-blue);
   font-size: 16px;
   cursor: pointer;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .nav {
