@@ -9,9 +9,12 @@
 
 :root {
   --text-blue: #092147;
+  --text-white: #fff;
+
+  --bg-white: #fff;
+
   --text-color: #fff;
   --bg-color: #c6def6;
   --bg-button: #092147;
-  --bg-white: #fff;
   --bg-treatmentplan: #092147;
 }

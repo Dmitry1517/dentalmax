@@ -1,18 +1,15 @@
-<script setup>
-import Information from '@/shared/components/Information.vue';
-import Button from '@/shared/components/Button.vue';
-</script>
+<script setup></script>
 
 <template>
     <div class="treatmentplan">
         <div class="treatmentplan__inner">
-            <Information 
-                title="Составим план лечения"
-                text="Проанализируем состояние ваших зубов и дадим рекомендации по лечению"
-                color="#fff"
-            />
-            <div class="treatmentplan__button"><Button color="#092147" bg="#fff">Записаться на приём</Button></div>
-              
+            <div class="treatmentplan__info">
+                <span class="treatmentplan__title">Составим план лечения</span>
+                <span class="treatmentplan__text">Проанализируем состояние ваших зубов и дадим рекомендации</span>
+            </div>
+            <div class="treatmentplan__button">
+                <button>Записаться на приём</button>
+            </div>
         </div>
     </div>
 </template>
@@ -30,7 +27,42 @@ import Button from '@/shared/components/Button.vue';
     gap: 20px;
 }
 
+.treatmentplan__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 20px;
+    color: var(--text-white);
+}
+
+.treatmentplan__title {
+    font-size: 25px;
+}
+
+.treatmentplan__text {
+    font-size: 18px;
+    font-weight: 300;
+}
+
 .treatmentplan__button {
     padding: 0px 20px;
+}
+
+.treatmentplan__button button {
+    background: var(--bg-white);
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    color: var(--text-blue);
+    font-size: 20px;
+}
+
+@media all and (min-width: 768px) {
+    .treatmentplan__button,
+    .treatmentplan__title,
+    .treatmentplan__text {
+        text-align: center;
+    }
 }
 </style>

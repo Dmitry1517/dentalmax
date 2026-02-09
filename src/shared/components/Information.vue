@@ -29,6 +29,18 @@ const {title, text, color} = defineProps({
   font-size: 20px;
 }
 
+@media all and (min-width: 768px) {
+  .information__title {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .information__text {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
 @media all and (min-width: 1080px) {
   .information__title {
     font-size: 40px;

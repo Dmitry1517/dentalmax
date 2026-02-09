@@ -14,7 +14,7 @@ import GisCard from '@/shared/components/GisCard.vue';
 </script>
 
 <template>
-  <div>
+  <!-- <div> -->
     <!-- <div id="header">
       <div class="header">
         
@@ -120,7 +120,7 @@ import GisCard from '@/shared/components/GisCard.vue';
       </div>
       <!-- Карта -->
       <div id="map" style="width:100%; height:210px"></div>
-    </div>
+    <!-- </div> -->
 
     <TreatmentPlan />
     <FooterHome />

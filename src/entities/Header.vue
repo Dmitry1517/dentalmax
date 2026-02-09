@@ -91,7 +91,7 @@ import Button from '@/shared/components/Button.vue'
   border-radius: 10px;
   padding: 10px;
   color: var(--text-color);
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 16px;
   outline: none;
   border: none;
