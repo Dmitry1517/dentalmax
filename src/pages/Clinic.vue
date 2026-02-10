@@ -7,7 +7,7 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
 <template>
   <div class="clinic">
     <span class="title">КЛИНИКА</span>
-    <!-- <section class="clinic-info">
+    <section class="clinic-info">
       <span class="clinic-name">ДентАлМакс</span>
       <img src="/public/clinic-rec.png" class="clinic-img" alt="clinic-rec" srcset="/public/Clinic-rec-768.png 768w">
       <div class="clinic-banner">
@@ -42,8 +42,10 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
         чтобы каждый наш врач и ассистент был мотивирован делать лучший выбор для пациента. 
       </span>
       <span class="sub-title">Лицензия и документы оргранизации</span>
-      <DocumentSlider />
-    </section> -->
+    </section>
+      
+    <DocumentSlider style="margin-top: 20px;" />
+    
     <TreatmentPlan />
     <FooterHome />
   </div>
@@ -51,18 +53,16 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
 
 <style scoped>
 .clinic {
-  /* max-width: 1280px; */
   width: 100%;
   margin: 0 auto;
   margin-top: 10px;
-  /* padding: 0px 20px; */
 }
 
 .clinic-info {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 20px;
   padding: 0px 20px;
 }
 
@@ -84,11 +84,11 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
 }
 
 .clinic-text {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .sub-title {
-  font-size: 20px;
+  font-size: 18px;
   color: var(--text-blue);
 }
 
@@ -100,7 +100,7 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
 }
 
 .clinic-banner {
-  display: flex;
+  display: none;
   align-items: center;
   background: #e6f4ff;
   padding: 50px 30px;
@@ -122,9 +122,29 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
   font-size: 24px;
   font-weight: bold;
 }
+
+.clinic__docs {
+  padding: 0px 20px;
+}
+
+
+@media all and (min-width: 768px) {
+  .clinic-info {
+    gap: 30px;
+  }
+  .clinic-banner {
+    display: flex;
+  }
+  .clinic-text {
+    font-size: 18px;
+  }
+  .sub-title {
+    font-size: 24px;
+  }
+}
+
 </style>
 
-/* Заботимся сегодня, чтобы улыбаться завтра */
 
 
 

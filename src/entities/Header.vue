@@ -13,13 +13,13 @@ import Button from '@/shared/components/Button.vue'
       <div class="nav">
         <ul class="nav__list">
           <RouterLink to="/clinic" class="nav__item">Клиника</RouterLink>
-          <li class="nav__item">Услуги</li>
-          <li class="nav__item">Специалисты</li>
-          <li class="nav__item">Отзывы</li>
+          <RouterLink to="/services" class="nav__item">Услуги</RouterLink>
+          <RouterLink to="/specialists" class="nav__item">Специалисты</RouterLink>
+          <RouterLink to="/fidback" class="nav__item">Отзывы</RouterLink>
         </ul>
       </div>
       <div class="login">
-        <button class="button button_notbg">Войти</button>
+        <!-- <button class="button button_notbg">Войти</button> -->
         <button class="button">Регистрация</button>
       </div>
     </div>

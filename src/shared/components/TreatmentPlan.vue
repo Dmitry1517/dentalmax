@@ -5,7 +5,7 @@
         <div class="treatmentplan__inner">
             <div class="treatmentplan__info">
                 <span class="treatmentplan__title">Составим план лечения</span>
-                <span class="treatmentplan__text">Проанализируем состояние ваших зубов и дадим рекомендации</span>
+                <span class="treatmentplan__text">Проанализируем состояние ваших <br/> зубов и дадим рекомендации</span>
             </div>
             <div class="treatmentplan__button">
                 <button>Записаться на приём</button>
@@ -21,10 +21,10 @@
 
 .treatmentplan__inner {
     background: var(--bg-treatmentplan);
-    padding: 30px 0px;
+    padding: 35px 0px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
 }
 
 .treatmentplan__info {
@@ -36,11 +36,11 @@
 }
 
 .treatmentplan__title {
-    font-size: 25px;
+    font-size: 24px;
 }
 
 .treatmentplan__text {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
 }
 
@@ -63,6 +63,12 @@
     .treatmentplan__title,
     .treatmentplan__text {
         text-align: center;
+    }
+    .treatmentplan__title {
+        font-size: 30px;
+    }
+    .treatmentplan__text {
+        font-size: 22px;
     }
 }
 </style>
