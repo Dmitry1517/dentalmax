@@ -8,7 +8,7 @@
                 <span class="treatmentplan__text">Проанализируем состояние ваших <br/> зубов и дадим рекомендации</span>
             </div>
             <div class="treatmentplan__button">
-                <button>Записаться на приём</button>
+                <RouterLink to="/makeappointment"><button>Записаться на приём</button></RouterLink>
             </div>
         </div>
     </div>

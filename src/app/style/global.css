@@ -10,9 +10,15 @@
 :root {
   --text-blue: #092147;
   --text-white: #fff;
+  --text-light-grey: #d0d5dd;
+  --text-grey-1: #3C4959;
+  --text-grey-2: #979797;
+  --text-grey-3: #667085;
 
   --bg-white: #fff;
   --bg-blue: #092147;
+
+
 
   --text-color: #fff;
   --bg-color: #c6def6;

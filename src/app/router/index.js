@@ -4,6 +4,8 @@ import Home from '@/pages/Home.vue'
 import Services from '@/pages/Services.vue'
 import Specialists from '@/pages/Specialists.vue'
 import Fidback from '@/pages/Fidback.vue'
+import Makeappointment from '@/pages/MakeAppointment.vue'
+import AppointmentCompleted from '@/pages/AppointmentCompleted.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -33,6 +35,16 @@ const router = createRouter({
       name: 'fidback',
       component: Fidback,
     },
+    {
+      path: '/makeappointment',
+      name: 'makeappointment',
+      component: Makeappointment,
+    },
+    {
+      path: '/appointment-completed',
+      name: 'appointment-completed',
+      component: AppointmentCompleted,
+    }
   ],
 })
 
