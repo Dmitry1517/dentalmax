@@ -87,7 +87,7 @@ import Button from '@/shared/components/Button.vue'
 }
 
 .button {
-  background: var(--bg-button);
+  background: var(--bg-blue);
   border-radius: 10px;
   padding: 10px;
   color: var(--text-color);

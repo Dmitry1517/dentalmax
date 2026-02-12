@@ -8,7 +8,11 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
   <div class="clinic">
     <span class="title">КЛИНИКА</span>
     <section class="clinic-info">
-      <span class="clinic-name">ДентАлМакс</span>
+      <span class="clinic-name">
+        <span class="clinic__brad">Главная</span>
+        <span class="clinic__brad"> > </span>
+        <span class="clinic__brad">Клиника</span>
+      </span>
       <img src="/public/clinic-rec.png" class="clinic-img" alt="clinic-rec" srcset="/public/Clinic-rec-768.png 768w">
       <div class="clinic-banner">
         <div>
@@ -47,8 +51,9 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
     <DocumentSlider style="margin-top: 20px;" />
     
     <TreatmentPlan />
-    <FooterHome />
+    
   </div>
+  <FooterHome />
 </template>
 
 <style scoped>
@@ -74,8 +79,11 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
 }
 
 .clinic-name {
-  font-size: 25px;
-  color: var(--text-blue);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-grey-4);
 }
 
 .clinic-img {
@@ -140,6 +148,16 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
   }
   .sub-title {
     font-size: 24px;
+  }
+}
+
+@media all and (min-width: 1280px) {
+  .clinic {
+    width: 1280px;
+  }
+
+  .banner-img {
+    width: 500px;
   }
 }
 

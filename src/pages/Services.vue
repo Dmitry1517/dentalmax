@@ -6,6 +6,11 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
 <template>
     <div class="services">
         <div class="services__title">СТОМАТОЛОГИЧЕСКИЕ УСЛУГИ</div>
+        <span class="services-name">
+            <span class="services__brad">Главная</span>
+            <span class="services__brad"> > </span>
+            <span class="services__brad">Услуги</span>
+        </span>
         <ul class="services__list">
             <li class="services__item">Терапевтическая стоматология</li>
             <li class="services__item">Хирургическая стоматология</li>
@@ -14,11 +19,25 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
             <li class="services__item">Ортодонтическая стоматология</li>
         </ul>
         <TreatmentPlan />
-        <FooterHome />
     </div>
+    <FooterHome />
 </template>
 
 <style scoped>
+.services {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+.services-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-grey-4);
+  padding: 0px 20px;
+  margin-top: 20px;
+}
 .services__title {
   font-size: 25px;
   font-weight: 600;
@@ -52,6 +71,21 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
     }
     .services__item {
         font-size: 18px;
+    }
+}
+
+@media all and (min-width: 1280px) {
+    /* .services__list,
+    .services__title {
+        width: 1280px;
+        margin: 0 auto;
+    }
+    .services-name {
+        width: 1280px;
+        margin: 0 auto;
+    } */
+    .services {
+        width: 1280px;
     }
 }
 </style>

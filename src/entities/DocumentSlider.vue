@@ -132,7 +132,7 @@ onUnmounted(() => {
   /* padding: 40px 20px; */
   /* min-height: 300px; */
   height: 320px;
-    width: 256px;
+    /* width: 256px; */
     margin: 0 auto;
 }
 

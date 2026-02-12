@@ -14,6 +14,8 @@
   --text-grey-1: #3C4959;
   --text-grey-2: #979797;
   --text-grey-3: #667085;
+  --text-grey-4: #737373;
+  --text-black: #000;
 
   --bg-white: #fff;
   --bg-blue: #092147;
@@ -22,6 +24,6 @@
 
   --text-color: #fff;
   --bg-color: #c6def6;
-  --bg-button: #092147;
-  --bg-treatmentplan: #092147;
+  /* --bg-button: #092147;
+  --bg-treatmentplan: #092147; */
 }

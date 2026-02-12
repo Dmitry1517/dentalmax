@@ -7,32 +7,40 @@ import Button from '@/shared/components/Button.vue';
 </script>
 
 <template>
-    <div class="footer">
-        <LogoName color="#092147" />
-        <span class="footer__ofert">Сайт не является публичной офертой</span>
-        <div class="footer__info">
-            <div class="footer__left">
-                <a class="footer__text" href="#">Лицензия и реквизиты клиники</a>
-                <a class="footer__text" href="#">Политика конфиденциальности</a>
-                <div class="footer__chanels">
-                    <span class="footer__text">Наши каналы:</span>
-                    <VKicon />
-                    <TGicon />
+    <div class="footer-home">
+        <div class="footer">
+            <LogoName class="small-width" color="#092147" />
+            <LogoName class="large-width" color="#fff" />
+            <span class="footer__ofert">Сайт не является публичной офертой</span>
+            <div class="footer__info">
+                <div class="footer__left">
+                    <a class="footer__text" href="#">Лицензия и реквизиты клиники</a>
+                    <a class="footer__text" href="#">Политика конфиденциальности</a>
+                    <div class="footer__chanels">
+                        <span class="footer__text">Наши каналы:</span>
+                        <VKicon />
+                        <TGicon />
+                    </div>
                 </div>
-            </div>
-            <div class="footer__right">
-                <span class="footer__tel">Контактный телефон: +7 950 385 22 11</span>
-                <span class="footer__time">Ежедневно 9:00-20:00</span>
-                <span class="footer__adress">ул. Советская 14, 1 этаж</span>
-                <span class="footer__text">Телефон для кандидатов: +7 900 000 00 00</span>
+                <div class="footer__right">
+                    <span class="footer__tel">Контактный телефон: +7 950 385 22 11</span>
+                    <span class="footer__time">Ежедневно 9:00-20:00</span>
+                    <span class="footer__adress">ул. Советская 14, 1 этаж</span>
+                    <span class="footer__text">Телефон для кандидатов: +7 900 000 00 00</span>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <style scored>
+
+.large-width {
+    display: none;
+}
+
 .footer {
-    padding: 0px 20px 30px 20px;
+    padding: 30px 20px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -94,6 +102,41 @@ import Button from '@/shared/components/Button.vue';
     .footer__time,
     .footer__adress {
         font-size: 16px;
+    }
+}
+
+@media all and (min-width: 1280px) {
+    .footer-home {
+        background: var(--bg-blue);
+    }
+    .footer {
+        width: 1280px;
+        margin: 0 auto;
+    }
+    .footer__ofert,
+    .footer__text,
+    .footer__tel, 
+    .footer__time, 
+    .footer__adress {
+        color: var(--text-white);
+    }
+    .footer__text,
+    .footer__tel, 
+    .footer__time, 
+    .footer__adress {
+        font-size: 18px;
+    }
+    .footer__ofert,
+    .footer__text,
+    .footer__tel, 
+    .footer__time {
+        font-weight: 300;
+    }
+    .small-width {
+        display: none;
+    }
+    .large-width {
+        display: flex;
     }
 }
 </style>

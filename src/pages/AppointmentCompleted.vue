@@ -4,7 +4,7 @@
     <div class="appointment-succed">
         <span class="appointment-succed__title">Запись успешна завершена!</span>
         <span class="appointment-succed__text">
-            В ближайшее время вам позвонит администратор и проконсультирует вас.
+            В ближайшее время вам позвонит <br/> администратор и проконсультирует вас.
         </span>
         <div class="appointment-succed__button">
             <RouterLink to="/"><button>Вернуться на главную страницу</button></RouterLink>
@@ -46,5 +46,11 @@
     cursor: pointer;
     color: var(--text-white);
     font-size: 20px;
+}
+
+@media all and (min-width: 768px) {
+    .appointment-succed {
+        gap: 90px;
+    }
 }
 </style>

@@ -20,7 +20,7 @@
 }
 
 .treatmentplan__inner {
-    background: var(--bg-treatmentplan);
+    background: var(--bg-blue);
     padding: 35px 0px;
     display: flex;
     flex-direction: column;
@@ -66,6 +66,31 @@
     }
     .treatmentplan__title {
         font-size: 30px;
+    }
+    .treatmentplan__text {
+        font-size: 22px;
+    }
+}
+
+@media all and (min-width: 1280px) {
+    .treatmentplan__inner {
+        background: var(--bg-white);
+    }
+    .treatmentplan__button button {
+        background: var(--bg-blue);
+        padding: 15px 30px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        color: var(--text-white);
+        font-size: 20px;
+    }
+    .treatmentplan__info {
+        color: var(--bg-black);
+    }
+
+    .treatmentplan__title {
+        font-size: 34px;
     }
     .treatmentplan__text {
         font-size: 22px;
