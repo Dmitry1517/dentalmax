@@ -14,7 +14,7 @@ const {color} = defineProps({
 
 <style scoped>
 .logo {
-    display: flex;
+    /* display: flex; */
     align-items: center;
     gap: 5px;
 }

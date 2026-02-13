@@ -16,7 +16,7 @@
 
 <style scoped>
 .treatmentplan { 
-    padding: 50px 0px;
+    padding: 30px 0px;
 }
 
 .treatmentplan__inner {

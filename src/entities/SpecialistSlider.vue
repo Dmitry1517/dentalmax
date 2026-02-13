@@ -5,11 +5,10 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Navigation, Pagination } from 'swiper/modules'
-import ArrowRightWhite from '@/shared/icons/ArrowRightWhite.vue'
-import ArrowLeftWhite from '@/shared/icons/ArrowLeftWhite.vue'
 import ArrowLink from '@/shared/icons/ArrowLink.vue'
-import ArrowLeftStr from '@/shared/icons/ArrowLeftStr.vue'
-import ArrowRightStr from '@/shared/icons/ArrowRightStr.vue'
+import ArrowLeft from '@/shared/icons/ArrowLeft.vue'
+import ArrowRight from '@/shared/icons/ArrowRight.vue'
+
 
 const props = defineProps({
   slides: {
@@ -100,10 +99,7 @@ onUnmounted(() => {
   <div class="slider-component">
     <!-- Slider main container -->
     <div class="slider-wrapper">
-      <!-- Левая стрелка для мобильных -->
-      <button v-if="showSideArrows" class="arrow-side left" @click="slidePrev">
-        <ArrowLeftWhite />
-      </button>
+      
 
       <swiper
         :modules="modules"
@@ -118,27 +114,37 @@ onUnmounted(() => {
         <!-- Slides -->
         <swiper-slide v-for="(slide, index) in slidesData" :key="index">
           <div class="slide-content">
-            <div class="slide-image">{{ slide.image }}</div>
+            <div class="slide-image">
+              {{ slide.image }}
+              <div class="slide-spec">Терапевт</div>
+            </div>
             <div class="slide-caption">{{ slide.caption }}</div>
-            <div class="slide-spec">Терапевт</div>
+            
             <ArrowLink class="slide-link" />
           </div>
         </swiper-slide>
       </swiper>
 
-      <!-- Правая стрелка для мобильных -->
-      <button v-if="showSideArrows" class="arrow-side right" @click="slideNext">
-        <ArrowRightWhite />
-      </button>
+      
 
       <!-- Навигация для планшета и десктопа -->
       <div v-if="showBottomNavigation" class="bottom-navigation">
         <div class="swiper-pagination"></div>
         <div class="bottom-arrows">
-          <button class="arrow-bottom prev" @click="slidePrev"><ArrowLeftStr /></button>
-          <button class="arrow-bottom next" @click="slideNext"><ArrowRightStr /></button>
+          <button class="arrow-bottom prev" @click="slidePrev"><ArrowLeft /></button>
+          <button class="arrow-bottom next" @click="slideNext"><ArrowRight /></button>
         </div>
       </div>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 50px;">
+      <!-- Левая стрелка для мобильных -->
+      <button v-if="showSideArrows" class="arrow-side left" @click="slidePrev">
+        <ArrowLeft />
+      </button>
+      <!-- Правая стрелка для мобильных -->
+      <button v-if="showSideArrows" class="arrow-side right" @click="slideNext">
+        <ArrowRight />
+      </button>
     </div>
   </div>
 </template>
@@ -186,12 +192,13 @@ h1 {
 
 .slide-spec {
   position: absolute;
-  bottom: 85px;
+  bottom: 10px;
   left: 12px;
   font-size: 15px;
   border-radius: 3px;
   padding: 1px 10px;
-  background: #fff;
+  background: var(--bg-white);
+  color: var(--text-black);
 }
 
 .slide-link {
@@ -206,6 +213,7 @@ h1 {
 }
 
 .slide-image {
+  position: relative;
   width: 100%;
   height: 320px;
   border-radius: 12px;
@@ -215,16 +223,16 @@ h1 {
   justify-content: center;
   color: white;
   font-size: 16px;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .slide-caption {
   padding: 15px;
   text-align: center;
-  font-size: 17px;
-  color: #fff;
+  font-size: 18px;
+  color: var(--text-blue);
   line-height: 1.4;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 /* Боковые стрелки для мобильных */
@@ -247,19 +255,19 @@ h1 {
   
 }
 
-.arrow-side:hover {
+/* .arrow-side:hover {
   background: #764ba2;
   transform: scale(1.1);
-}
+} */
 
 .arrow-side.left {
   order: 1;
-  transform: translateY(-30px);
+  /* transform: translateY(-30px); */
 }
 
 .arrow-side.right {
   order: 3;
-  transform: translateY(-30px);
+  /* transform: translateY(-30px); */
 }
 
 .custom-swiper {
@@ -269,7 +277,7 @@ h1 {
 /* Навигация для планшета и десктопа */
 .bottom-navigation {
   position: absolute;
-  bottom: -60px;
+  bottom: 0px;
   left: 0;
   right: 0;
   display: flex;
@@ -281,14 +289,14 @@ h1 {
 
 .bottom-arrows {
   display: flex;
-  gap: 20px;
+  gap: 100px;
 }
 
 .arrow-bottom {
   width: 45px;
   height: 45px;
   border: none;
-  background: #667eea;
+  /* background: #667eea; */
   color: white;
   border-radius: 50%;
   cursor: pointer;
@@ -296,14 +304,14 @@ h1 {
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  /* transition: all 0.3s ease; */
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); */
 }
 
-.arrow-bottom:hover {
+/* .arrow-bottom:hover {
   background: #764ba2;
   transform: scale(1.1);
-}
+} */
 
 /* Стили для пагинации Swiper */
 :deep(.swiper-pagination) {
@@ -371,6 +379,14 @@ h1 {
   }
 }
 
+@media all and (min-width: 537px) {
+  :deep(.swiper-pagination) {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
 /* Десктопная версия (1080px+) */
 @media (min-width: 1080px) {
 
@@ -383,28 +399,24 @@ h1 {
     font-size: 17px;
   }
 
-  .arrow-bottom {
+  /* .arrow-bottom {
     width: 50px;
     height: 50px;
     font-size: 20px;
-  }
+  } */
 
-  .bottom-arrows {
+  /* .bottom-arrows {
     gap: 70px;
-  }
+  } */
 
-  :deep(.swiper-pagination) {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
+  
 
   .bottom-navigation {
     bottom: 0;
   }
 
   .slide-spec {
-    bottom: 105px;
+    /* bottom: 105px; */
     font-size: 20px;
   }
 }
