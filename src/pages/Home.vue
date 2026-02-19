@@ -58,6 +58,33 @@ import GisCard from '@/shared/components/GisCard.vue';
       <div class="promo-desctop__img"><img src="/tooth-all.png" alt="tooth" /></div>
     </div> -->
 
+    <div class="promo-mobile">
+      <span class="promo-mobile__title">Качественное и безопасное лечение зубов в ДентАлМакс</span>
+      <span class="promo-mobile__text">
+        Мы предлагаем полный спектр стоматологических услуг, от профилактики до сложного
+        протезирования, с использованием передовых технологий и материалов.
+      </span>
+      <img class="promo-img" src="/public/tooth-all.png" alt="tooth" />
+      <div class="promo-mobile__button">
+        <button ">Записаться на приём</button>
+      </div>
+    </div>
+
+    
+
+    <div style="position: relative; width: 100%; display: none;">
+      <img src="/public/bg.png" alt="pic" style="width: 100%; height: 700px">
+      <img src="/public/desctop-home-page.png" alt="pic" style="position: absolute; top: 0; left: 0; right: 0; width: 1280px; margin: 0 auto">
+      <div class="promo-desctop__card">
+        <span class="promo-desctop__title">Качественное и безопасное лечение зубов в ДентАлМакс</span>
+        <span class="promo-desctop__text">
+          Мы предлагаем полный спектр стоматологических услуг, от профилактики до сложного
+          протезирования, с использованием передовых технологий и материалов.
+        </span>
+        <Button>Записаться на приём</Button>
+      </div>
+    </div>
+    
 
     <Information 
       title="Почему нам доверяют свою улыбку?" 
@@ -126,5 +153,70 @@ import GisCard from '@/shared/components/GisCard.vue';
     <FooterHome />
   </div>
 </template>
+
+<style scoped>
+.promo-desctop__card {
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 50px 35px;
+  text-align: center;
+  align-self: flex-start;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+.promo-desctop__title {
+  font-size: 30px;
+}
+
+.promo-desctop__text {
+  font-size: 12px;
+}
+
+.promo-mobile {
+  position: relative;
+  background-image: url('/public/bg.png');
+  width: 100%;
+  height: 525px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-top: 20px;
+}
+.promo-mobile__title {
+  color: var(--text-white);
+  font-size: 25px;
+  padding: 0px 20px;
+}
+
+.promo-mobile__text {
+  font-size: 15px;
+  padding: 0px 20px;
+}
+
+.promo-mobile__button {
+  position: absolute;
+  top: 55%;
+  left: 5%;
+}
+
+.promo-mobile__button button {
+  /* bottom: 20px; */
+  background: var(--bg-blue);
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: var(--text-white);
+  font-size: 16px;
+  font-weight: 300;
+}
+</style>
 
 

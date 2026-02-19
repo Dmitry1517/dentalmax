@@ -129,25 +129,7 @@ import Button from '@/shared/components/Button.vue'
   padding: 30px 20px;
 }
 
-.promo-desctop__card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  background: #fff;
-  border-radius: 20px;
-  padding: 25px 15px;
-  text-align: center;
-  align-self: flex-start;
-}
 
-.promo-desctop__title {
-  font-size: 18px;
-}
-
-.promo-desctop__text {
-  font-size: 12px;
-}
 
 .promo-desctop__img img {
   width: 280px;
