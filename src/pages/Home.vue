@@ -206,6 +206,13 @@ import GisCard from '@/shared/components/GisCard.vue';
   left: 5%;
 }
 
+.services {
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .promo-mobile__button button {
   /* bottom: 20px; */
   background: var(--bg-blue);
@@ -217,6 +224,22 @@ import GisCard from '@/shared/components/GisCard.vue';
   font-size: 16px;
   font-weight: 300;
 }
+
+.services__item {
+  border: 1px solid var(--bg-blue);
+  color: var(--bg-blue);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 15px;
+  cursor: pointer;
+  width: fit-content;  
+}
+
+.specialists {
+  padding: 40px 0px;
+  background: var(--bg-blue);
+}
+
 </style>
 
 

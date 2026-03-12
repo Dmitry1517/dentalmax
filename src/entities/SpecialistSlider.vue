@@ -9,15 +9,13 @@ import ArrowLink from '@/shared/icons/ArrowLink.vue'
 import ArrowLeft from '@/shared/icons/ArrowLeft.vue'
 import ArrowRight from '@/shared/icons/ArrowRight.vue'
 
-
 const props = defineProps({
   slides: {
     type: Array,
     default: () => [
       {
         image: 'Фото 1',
-        caption:
-          'Фамилия Имя Отчество',
+        caption: 'Фамилия Имя Отчество',
       },
       { image: 'Фото 2', caption: 'Фамилия Имя Отчество' },
       { image: 'Фото 3', caption: 'Фамилия Имя Отчество' },
@@ -99,8 +97,6 @@ onUnmounted(() => {
   <div class="slider-component">
     <!-- Slider main container -->
     <div class="slider-wrapper">
-      
-
       <swiper
         :modules="modules"
         :slides-per-view="slidesPerView"
@@ -119,13 +115,11 @@ onUnmounted(() => {
               <div class="slide-spec">Терапевт</div>
             </div>
             <div class="slide-caption">{{ slide.caption }}</div>
-            
+
             <ArrowLink class="slide-link" />
           </div>
         </swiper-slide>
       </swiper>
-
-      
 
       <!-- Навигация для планшета и десктопа -->
       <div v-if="showBottomNavigation" class="bottom-navigation">
@@ -136,7 +130,7 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-    <div style="display: flex; justify-content: center; align-items: center; gap: 50px;">
+    <div style="display: flex; justify-content: center; align-items: center; gap: 60px">
       <!-- Левая стрелка для мобильных -->
       <button v-if="showSideArrows" class="arrow-side left" @click="slidePrev">
         <ArrowLeft />
@@ -153,7 +147,7 @@ onUnmounted(() => {
 .slider-component {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 20px 10px;
+  padding: 30px 10px;
   font-family: Arial, sans-serif;
 }
 
@@ -204,7 +198,7 @@ h1 {
 .slide-link {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 85px;
   cursor: pointer;
 }
 
@@ -214,7 +208,7 @@ h1 {
 
 .slide-image {
   position: relative;
-  width: 100%;
+  width: 256px;
   height: 320px;
   border-radius: 12px;
   background: #f1f1f1;
@@ -223,14 +217,14 @@ h1 {
   justify-content: center;
   color: white;
   font-size: 16px;
-  /* font-weight: bold; */
+  margin: 0 auto;
 }
 
 .slide-caption {
   padding: 15px;
   text-align: center;
   font-size: 18px;
-  color: var(--text-blue);
+  color: var(--text-white);
   line-height: 1.4;
   margin-top: 10px;
 }
@@ -252,7 +246,6 @@ h1 {
   flex-shrink: 0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  
 }
 
 /* .arrow-side:hover {
@@ -389,7 +382,6 @@ h1 {
 
 /* Десктопная версия (1080px+) */
 @media (min-width: 1080px) {
-
   .slide-image {
     height: 530px;
   }
@@ -408,8 +400,6 @@ h1 {
   /* .bottom-arrows {
     gap: 70px;
   } */
-
-  
 
   .bottom-navigation {
     bottom: 0;
