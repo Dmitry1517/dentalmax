@@ -8,6 +8,8 @@ import { Navigation, Pagination } from 'swiper/modules'
 import ArrowLink from '@/shared/icons/ArrowLink.vue'
 import ArrowLeft from '@/shared/icons/ArrowLeft.vue'
 import ArrowRight from '@/shared/icons/ArrowRight.vue'
+import ArrowLeftWhite from '@/shared/icons/ArrowLeftWhite.vue'
+import ArrowRightWhite from '@/shared/icons/ArrowRightWhite.vue'
 
 const props = defineProps({
   slides: {
@@ -133,11 +135,11 @@ onUnmounted(() => {
     <div style="display: flex; justify-content: center; align-items: center; gap: 60px">
       <!-- Левая стрелка для мобильных -->
       <button v-if="showSideArrows" class="arrow-side left" @click="slidePrev">
-        <ArrowLeft />
+        <ArrowLeftWhite />
       </button>
       <!-- Правая стрелка для мобильных -->
       <button v-if="showSideArrows" class="arrow-side right" @click="slideNext">
-        <ArrowRight />
+        <ArrowRightWhite />
       </button>
     </div>
   </div>
@@ -198,7 +200,7 @@ h1 {
 .slide-link {
   position: absolute;
   top: 10px;
-  right: 85px;
+  right: 63px;
   cursor: pointer;
 }
 
@@ -234,8 +236,8 @@ h1 {
   width: 40px;
   height: 40px;
   border: none;
-  background: #667eea;
-  color: white;
+  /* background: #667eea;  */
+  /* color: white; */
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -244,7 +246,7 @@ h1 {
   font-size: 18px;
   transition: all 0.3s ease;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); */
   z-index: 10;
 }
 

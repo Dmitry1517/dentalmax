@@ -1,21 +1,50 @@
 <script setup>
 import LogoName from '@/shared/components/LogoName.vue'
 import Button from '@/shared/components/Button.vue'
+
+defineProps({
+  textColor: {
+    type: String,
+  },
+  headerBg: {
+    type: Boolean,
+  },
+})
 </script>
 
 <template>
-  <header class="header">
+  <header class="header" :style="{ backgroundColor: headerBg ? '#a5c8e5' : '#fff' }">
     <div class="header__inner">
-      <RouterLink to="/" style="text-decoration: none;"><LogoName color="#092147" /></RouterLink>
+      <RouterLink to="/" style="text-decoration: none"><LogoName :color="textColor" /></RouterLink>
       <div class="header__button">
         <img src="/menu-btn.png" alt="menu" />
       </div>
       <div class="nav">
         <ul class="nav__list">
-          <RouterLink to="/clinic" class="nav__item">Клиника</RouterLink>
-          <RouterLink to="/services" class="nav__item">Услуги</RouterLink>
-          <RouterLink to="/specialists" class="nav__item">Специалисты</RouterLink>
-          <RouterLink to="/fidback" class="nav__item">Отзывы</RouterLink>
+          <RouterLink
+            to="/clinic"
+            :style="{ color: headerBg ? '#fff' : '#092147' }"
+            class="nav__item"
+            >Клиника</RouterLink
+          >
+          <RouterLink
+            to="/services"
+            :style="{ color: headerBg ? '#fff' : '#092147' }"
+            class="nav__item"
+            >Услуги</RouterLink
+          >
+          <RouterLink
+            to="/specialists"
+            :style="{ color: headerBg ? '#fff' : '#092147' }"
+            class="nav__item"
+            >Специалисты</RouterLink
+          >
+          <RouterLink
+            to="/fidback"
+            :style="{ color: headerBg ? '#fff' : '#092147' }"
+            class="nav__item"
+            >Отзывы</RouterLink
+          >
         </ul>
       </div>
       <div class="login">
@@ -28,10 +57,9 @@ import Button from '@/shared/components/Button.vue'
 
 <style>
 .header {
-  /* background-image: url('/bg.png'); */
+  height: 89px;
   width: 100%;
   padding: 20px 15px;
-  
 }
 
 .header__inner {
@@ -70,7 +98,6 @@ import Button from '@/shared/components/Button.vue'
 }
 
 .nav__item {
-  color: var(--text-blue);
   font-size: 16px;
   cursor: pointer;
   text-decoration: none;
@@ -121,21 +148,6 @@ import Button from '@/shared/components/Button.vue'
   background-position-x: right;
 }
 
-.promo-desctop {
-  background-image: url('/bg-pic-tooth-desctop.png');
-  max-width: 1280px;
-  margin: 0 auto;
-  display: none;
-  padding: 30px 20px;
-}
-
-
-
-.promo-desctop__img img {
-  width: 280px;
-  height: 280px;
-}
-
 @media all and (min-width: 340px) {
   .form {
     top: 28%;
@@ -165,9 +177,9 @@ import Button from '@/shared/components/Button.vue'
   .promo {
     display: none;
   }
-  .promo-desctop {
+  /* .promo-desctop {
     display: flex;
-  }
+  } */
 }
 
 @media all and (min-width: 768px) {

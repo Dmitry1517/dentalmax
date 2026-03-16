@@ -131,7 +131,6 @@
   display: none;
 }
 
-
 @media all and (min-width: 400px) {
   .promo__title {
     font-size: 25px;
@@ -176,4 +175,3 @@
     display: none;
   }
 }
-

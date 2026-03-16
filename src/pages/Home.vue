@@ -72,9 +72,9 @@ import GisCard from '@/shared/components/GisCard.vue';
 
     
 
-    <div style="position: relative; width: 100%; display: none;">
-      <img src="/public/bg.png" alt="pic" style="width: 100%; height: 700px">
-      <img src="/public/desctop-home-page.png" alt="pic" style="position: absolute; top: 0; left: 0; right: 0; width: 1280px; margin: 0 auto">
+    <div class="promo-desctop">
+      <!-- <img src="/public/bg.png" alt="pic" style="width: 100%; height: 580px"> -->
+      <img src="/public/desctop-home-page.png" alt="pic" class="promo-desctop__pic">
       <div class="promo-desctop__card">
         <span class="promo-desctop__title">Качественное и безопасное лечение зубов в ДентАлМакс</span>
         <span class="promo-desctop__text">
@@ -147,23 +147,36 @@ import GisCard from '@/shared/components/GisCard.vue';
       </div>
       <!-- Карта -->
       <div id="map" style="width:100%; height:210px"></div>
-    <!-- </div> -->
+    </div>
 
     <TreatmentPlan />
     <FooterHome />
-  </div>
+  <!-- </div> -->
 </template>
 
 <style scoped>
+.promo-desctop {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: none;
+  background: url('/public/bg.png');
+  height: 520px;
+}
+
+.promo-desctop__pic {
+  width: 100%;
+}
+
 .promo-desctop__card {
-  width: 480px;
+  width: 430px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
   background: #fff;
   border-radius: 20px;
-  padding: 50px 35px;
+  padding: 35px 20px;
   text-align: center;
   align-self: flex-start;
   position: absolute;
@@ -172,11 +185,11 @@ import GisCard from '@/shared/components/GisCard.vue';
 }
 
 .promo-desctop__title {
-  font-size: 30px;
+  font-size: 28px;
 }
 
 .promo-desctop__text {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .promo-mobile {
@@ -238,6 +251,40 @@ import GisCard from '@/shared/components/GisCard.vue';
 .specialists {
   padding: 40px 0px;
   background: var(--bg-blue);
+}
+
+.fidback {
+  padding: 25px 0px;
+}
+
+.btns-arrows {
+  gap: 80px;
+}
+
+@media all and (min-width: 768px) {
+  .promo-mobile {
+    display: none;
+  }
+
+  .promo-desctop {
+    display: block;
+  }
+
+  .promo-desctop__card {
+    top: 5%;
+    left: 5%;
+  }
+
+  .promo-desctop__pic {
+    display: none;
+  }
+}
+
+@media all and (min-width: 1280px) {
+  .promo-desctop__card {
+    top: 12%;
+    left: 12%;
+  }
 }
 
 </style>

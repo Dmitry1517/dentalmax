@@ -1,15 +1,19 @@
 <script setup>
-const {color = '#fff', bg = '#383b68', fs = '20px'} = defineProps({
+const {
+  color = '#fff',
+  bg = '#092147',
+  fs = '20px',
+} = defineProps({
   color: String,
   bg: String,
-  fs: String
+  fs: String,
 })
 </script>
 
 <template>
-    <button class="button" :style="{color: color, background: bg, fontSize: fs}">
-        <slot />
-    </button>
+  <button class="button" :style="{ color: color, background: bg, fontSize: fs }">
+    <slot />
+  </button>
 </template>
 
 <style>
@@ -21,4 +25,3 @@ const {color = '#fff', bg = '#383b68', fs = '20px'} = defineProps({
   cursor: pointer;
 }
 </style>
-
