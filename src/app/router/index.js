@@ -6,8 +6,8 @@ import Specialists from '@/pages/Specialists.vue'
 import Fidback from '@/pages/Fidback.vue'
 import Makeappointment from '@/pages/MakeAppointment.vue'
 import AppointmentCompleted from '@/pages/AppointmentCompleted.vue'
-import Registration from '@/pages/Registration.vue'
 import Login from '@/pages/Login.vue'
+import LK from '@/pages/LK.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -50,15 +50,17 @@ const router = createRouter({
     {
       path: '/administrator',
       name: 'admin',
-      component: Registration,
-      meta: { hideHeader: true },
-    },
-    {
-      path: '/login',
-      name: 'login',
       component: Login,
       meta: { hideHeader: true },
+      children: [{ path: '/administrator/profile', name: 'profile', component: LK }],
     },
+    // {
+    //   path: '/login',
+    //   name: 'login',
+    //   component: Login,
+    //   meta: { hideHeader: true },
+
+    // },
   ],
 })
 

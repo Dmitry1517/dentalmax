@@ -10,8 +10,8 @@ import UserReg from '@/shared/icons/UserReg.vue'
     <div class="header__inner">
       <RouterLink to="/" style="text-decoration: none"><LogoName color="#092147" /></RouterLink>
       <div class="login">
-        <button class="button button_notbg">Войти</button>
-        <button class="button">Регистрация</button>
+        <!-- <button class="button button_notbg">Войти</button>
+        <button class="button">Регистрация</button> -->
       </div>
     </div>
   </header>
@@ -44,12 +44,6 @@ import UserReg from '@/shared/icons/UserReg.vue'
       <div class="form-reg__button">
         <button>Зарегестрироваться</button>
       </div>
-      <span class="form-reg__text"
-        >Еще не зарегестрированы?
-        <RouterLink to="/administrator" class="form-reg__text_link"
-          >Создать учетную запись</RouterLink
-        ></span
-      >
     </div>
   </section>
 </template>
