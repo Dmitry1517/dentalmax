@@ -22,13 +22,13 @@
         >
           <div class="slide-content">
             <div class="slide-image">
-              <img :src="slide.image" alt="Slide Image" />
+              <div class="slide-shortname">{{ slide.image }}</div>
             </div>
             <div class="slide-name">{{ slide.name }}</div>
             <div class="slide-stars">
               <!-- {{ slide.stars }} -->
               <ul>
-                <li><Star /><Star /><Star /><Star /></li>
+                <li><Star /><Star /><Star /><Star /><Star /></li>
               </ul>
             </div>
             <div class="slide-caption">{{ slide.caption }}</div>
@@ -79,14 +79,14 @@ const props = defineProps({
   slides: {
     type: Array,
     default: () => [
-      { image: '/public/foto-user-fidback.png', name: 'Ангелина', stars: 4, caption: 'Замечательная атмосфера. Проконсультировали по лечению, предложили варианты лечения под мой случай. Через три посещения решили мою проблему. Замечательная клиника рекомендую' },
-      { image: 'Фото 2', name: 'UserName', stars: 4, caption: 'Горный пейзаж' },
-      { image: 'Фото 3', name: 'UserName', stars: 4, caption: 'Городская архитектура' },
-      { image: 'Фото 4', name: 'UserName', stars: 4, caption: 'Лесная тропинка' },
-      { image: 'Фото 5', name: 'UserName', stars: 4, caption: 'Ночной город' },
-      { image: 'Фото 6', name: 'UserName', stars: 4, caption: 'Зимний лес' },
-      { image: 'Фото 7', name: 'UserName', stars: 4, caption: 'Весенний сад' },
-      { image: 'Фото 8', name: 'UserName', stars: 4, caption: 'Пустынный пейзаж' }
+      { image: 'АМ', name: 'Анастасия М', stars: 5, caption: 'Хочу оставить положительный отзыв, прохожу лечение в данной стоматологии . Всё очень нравиться , чистая и уютная стоматология . Приветливый персонал. Рекомендую эту стоматологию.' },
+      { image: 'ВЦ', name: 'Виктор Цлавов', stars: 5, caption: 'Лучшая клиника с лучшими ценами и отличнейшими врачами. Сделали все качественно и быстро, а главное комфортно. Максим Сергеевич лучший! Буду приходить еще)' },
+      { image: 'ЗГ', name: 'Зинаида Гришина', stars: 5, caption: 'Приятная, чистая, небольшая стоматология. Врачи очень располагающие и приятные. Лечили кариес, реставрировали зуб, делали чистку, все прошло отлично 👍🏼' },
+      { image: 'О', name: 'Оксана', stars: 5, caption: 'Профессионалы своего дела, спасибо большое что вы есть, удобное расположение, доброжелательный коллектив🥰' },
+      { image: 'ИК', name: 'Ирина Кислюк', stars: 5, caption: 'Мой лечащий врач Максим Сергеевич - очень внимательный, на предварительной консультации всё грамотно объяснил, рассказал. Сделал протезирование коронки. Рекомендую данного хирурга - ортопеда' },
+      { image: 'АБ', name: 'Андрей Бубеев', stars: 5, caption: 'Спасибо большое работникам клиники за профессионализм,и очень благодарен за чуткое отношение, консультацию,решение проблем с зубами! Теперь улыбка,как у Гагарина!' },
+      { image: 'ВЛ', name: 'Валентина Лобсанова', stars: 5, caption: 'Спасибо большое врачу стоматологу Максиму Сергеевичу Ламуеву. Работа была выполнена настолько аккуратно,безболезненно , и быстро ,что я даже не заметила ,как все произошло. Ваши руки золото.' },
+      { image: 'АН', name: 'Арюна Норбоева', stars: 5, caption: 'Были в разных стоматологических клиниках, но после посещения этой, можем сказать одно-лучшая! Отличные врачи! Благодарим врачей за их профессионализм и преданность своему делу! Спасибо за улыбки моих мужа и сына!' }
     ]
   }
 })
@@ -216,19 +216,22 @@ h1 {
   border-radius: 5px;
   overflow: hidden;
   padding: 15px;
-  height: 100%;
+  height: 250px;
 }
 
 .slide-content:hover {
   transform: translateY(-3px);
 }
 
-.slide-image {
-  width: 65px;
-  height: 65px;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
+.slide-shortname {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--bg-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-white)
 }
 
 .slide-name {

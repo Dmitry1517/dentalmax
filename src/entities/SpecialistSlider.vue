@@ -115,10 +115,11 @@ onUnmounted(() => {
             <div class="slide-image">
               {{ slide.image }}
               <div class="slide-spec">Терапевт</div>
+              <ArrowLink class="slide-link" />
             </div>
             <div class="slide-caption">{{ slide.caption }}</div>
 
-            <ArrowLink class="slide-link" />
+            
           </div>
         </swiper-slide>
       </swiper>
@@ -200,7 +201,7 @@ h1 {
 .slide-link {
   position: absolute;
   top: 10px;
-  right: 63px;
+  right: 10px;
   cursor: pointer;
 }
 
