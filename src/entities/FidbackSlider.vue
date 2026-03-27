@@ -41,10 +41,15 @@
       <!-- Навигация для планшета и десктопа -->
       <div v-if="showBottomNavigation" class="bottom-navigation">
         <div class="swiper-pagination"></div>
-        <div class="bottom-arrows">
-          <button class="arrow-bottom prev" @click="slidePrev">←</button>
-          <button class="arrow-bottom next" @click="slideNext">→</button>
-        </div>
+        <!-- <div class="bottom-arrows">
+          <button class="arrow-side left" @click="slidePrev">
+            <ArrowLeft />
+          </button>
+         
+          <button class="arrow-side right" @click="slideNext">
+            <ArrowRight />
+          </button>
+        </div> -->
       </div>
     </div>
     <div class="btns-arrows">
@@ -367,7 +372,7 @@ h1 {
   .slider-wrapper {
     gap: 0;
     display: block;
-    padding-bottom: 80px; /* Место для навигации */
+    padding-bottom: 50px; /* Место для навигации */
   }
   
   .arrow-side {
@@ -385,13 +390,19 @@ h1 {
   }
   
   .slide-image {
-    height: 180px;
+    /* height: 180px; */
     font-size: 18px;
   }
   
   .slide-caption {
     padding: 20px;
     font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .slide-content {
+    height: 370px;
   }
 }
 
@@ -469,6 +480,12 @@ h1 {
   .slide-caption {
     padding: 10px;
     font-size: 13px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .slide-content {
+    height: 400px;
   }
 }
 </style>

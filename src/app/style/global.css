@@ -27,3 +27,7 @@
   --bg-color: #c6def6;
   
 }
+
+.dg-attribution .dg-attribution__warning-message {
+  display: none !important;
+}

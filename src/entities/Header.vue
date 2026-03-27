@@ -49,7 +49,7 @@ defineProps({
       </div>
       <div class="login">
         <!-- <button class="button button_notbg">Войти</button> -->
-        <button class="button">Регистрация</button>
+        <button class="button">Записаться</button>
       </div>
     </div>
   </header>

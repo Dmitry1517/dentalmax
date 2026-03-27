@@ -175,3 +175,10 @@
     display: none;
   }
 }
+
+@media all and (min-width: 1280px) {
+  .adress {
+    width: 1280px;
+    margin: 0 auto;
+  }
+}

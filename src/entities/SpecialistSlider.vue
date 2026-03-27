@@ -417,7 +417,7 @@ h1 {
 /* Большие десктопы (1200px+) */
 @media (min-width: 1200px) {
   .slide-image {
-    height: 530px;
+    height: 400px;
     font-size: 20px;
   }
 }

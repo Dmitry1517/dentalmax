@@ -1,5 +1,4 @@
 <script setup>
-import LogoName from '@/shared/components/LogoName.vue';
 import Button from '@/shared/components/Button.vue';
 import Information from '@/shared/components/Information.vue';
 import Twogis from '@/shared/icons/Twogis.vue';
@@ -9,7 +8,18 @@ import TextSlider from '@/entities/TextSlider.vue';
 import SpecialistSlider from '@/entities/SpecialistSlider.vue';
 import FidbackSlider from '@/entities/FidbackSlider.vue';
 import TwoGisBig from '@/shared/icons/TwoGisBig.vue';
-import GisCard from '@/shared/components/GisCard.vue';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  var map;
+  DG.then(function () {
+    map = DG.map('map', {
+      center: [51.82991, 107.57996],
+      zoom: 16
+    });
+    DG.marker([51.82991, 107.57996]).addTo(map);
+  });
+})
 
 </script>
 
@@ -155,6 +165,7 @@ import GisCard from '@/shared/components/GisCard.vue';
 </template>
 
 <style scoped>
+
 .promo-desctop {
   position: relative;
   width: 100%;
@@ -276,14 +287,29 @@ import GisCard from '@/shared/components/GisCard.vue';
   }
 
   .promo-desctop__pic {
-    display: none;
+    display: block;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .promo-desctop__card {
+    top: 15%;
+    left: 10%;
   }
 }
 
 @media all and (min-width: 1280px) {
   .promo-desctop__card {
     top: 12%;
-    left: 12%;
+    left: 20%;
+  }
+  .promo-desctop__pic {
+    width: 1000px;
+    margin: 0 auto;
+  }
+  .services {
+    width: 1280px;
+    margin: 0 auto;
   }
 }
 

@@ -140,4 +140,17 @@ const fids = reactive([
     cursor: pointer;
     text-decoration: none;
 }
+
+@media all and (min-width: 1280px) {
+    .fidback {
+        width: 1280px;
+        margin: 0 auto;
+        padding: 30px 0px;
+    }
+    .fidback-items__wrapper {
+        width: 1280px;
+        margin: 0 auto;
+        padding: 20px 0px;
+    }
+}
 </style>
