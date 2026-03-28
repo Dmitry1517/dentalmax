@@ -118,8 +118,6 @@ onUnmounted(() => {
               <ArrowLink class="slide-link" />
             </div>
             <div class="slide-caption">{{ slide.caption }}</div>
-
-            
           </div>
         </swiper-slide>
       </swiper>
@@ -127,19 +125,19 @@ onUnmounted(() => {
       <!-- Навигация для планшета и десктопа -->
       <div v-if="showBottomNavigation" class="bottom-navigation">
         <div class="swiper-pagination"></div>
-        <div class="bottom-arrows">
+        <!-- <div class="bottom-arrows">
           <button class="arrow-bottom prev" @click="slidePrev"><ArrowLeft /></button>
           <button class="arrow-bottom next" @click="slideNext"><ArrowRight /></button>
-        </div>
+        </div> -->
       </div>
     </div>
     <div style="display: flex; justify-content: center; align-items: center; gap: 60px">
       <!-- Левая стрелка для мобильных -->
-      <button v-if="showSideArrows" class="arrow-side left" @click="slidePrev">
+      <button class="arrow-side left" @click="slidePrev">
         <ArrowLeftWhite />
       </button>
       <!-- Правая стрелка для мобильных -->
-      <button v-if="showSideArrows" class="arrow-side right" @click="slideNext">
+      <button class="arrow-side right" @click="slideNext">
         <ArrowRightWhite />
       </button>
     </div>
@@ -348,12 +346,12 @@ h1 {
   .slider-wrapper {
     gap: 0;
     display: block;
-    padding-bottom: 80px; /* Место для навигации */
+    padding-bottom: 40px; /* Место для навигации */
   }
 
-  .arrow-side {
+  /* .arrow-side {
     display: none;
-  }
+  } */
 
   .bottom-navigation {
     display: flex;

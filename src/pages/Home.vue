@@ -24,50 +24,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <!-- <div> -->
-    <!-- <div id="header">
-      <div class="header">
-        
-        <Header />
-
-        <div class="promo">
-          <span class="promo__title">Качественное и безопасное лечение зубов в ДентАлМакс</span>
-          <span class="promo__text">
-            Мы предлагаем полный спектр стоматологических услуг, от профилактики до сложного
-            протезирования, с использованием передовых технологий и материалов.
-          </span>
-        </div>
-      </div>
-      <div class="form">
-        <Button>Записаться на приём</Button>
-      </div>
-    </div> -->
-
-
-    <!-- <div class="promo">
-      <span class="promo__title">Качественное и безопасное лечение зубов в ДентАлМакс</span>
-      <span class="promo__text">
-        Мы предлагаем полный спектр стоматологических услуг, от профилактики до сложного
-        протезирования, с использованием передовых технологий и материалов.
-      </span>
-    </div>
-    <div class="form">
-      <Button>Записаться на приём</Button>
-    </div>
-    <div class="promo-desctop">
-      <div class="promo-desctop__card">
-        <span class="promo-desctop__title"
-          >Качественное и безопасное лечение зубов в ДентАлМакс</span
-        >
-        <span class="promo-desctop__text">
-          Мы предлагаем полный спектр стоматологических услуг, от профилактики до сложного
-          протезирования, с использованием передовых технологий и материалов.
-        </span>
-        <Button>Записаться на приём</Button>
-      </div>
-      <div class="promo-desctop__img"><img src="/tooth-all.png" alt="tooth" /></div>
-    </div> -->
-
+  
     <div class="promo-mobile">
       <span class="promo-mobile__title">Качественное и безопасное лечение зубов в ДентАлМакс</span>
       <span class="promo-mobile__text">
@@ -80,10 +37,7 @@ onMounted(() => {
       </div>
     </div>
 
-    
-
     <div class="promo-desctop">
-      <!-- <img src="/public/bg.png" alt="pic" style="width: 100%; height: 580px"> -->
       <img src="/public/desctop-home-page.png" alt="pic" class="promo-desctop__pic">
       <div class="promo-desctop__card">
         <span class="promo-desctop__title">Качественное и безопасное лечение зубов в ДентАлМакс</span>
@@ -95,7 +49,6 @@ onMounted(() => {
       </div>
     </div>
     
-
     <Information 
       title="Почему нам доверяют свою улыбку?" 
       text="Забота о здоровье начинается с качественной стоматологии. Мы обеспечиваем безопасное и
@@ -104,12 +57,10 @@ onMounted(() => {
     />
 
     <TextSlider />
-
     <Information 
       title="Полный спектр стоматологических услуг" 
       text="Мы предлагаем полный все виды стоматологической помощи для взрослых и детей."
     />
-
     <div class="services">
       <div class="services__item">Консультация и диагностика</div>
       <div class="services__item">Лечение кариеса</div>
@@ -125,14 +76,10 @@ onMounted(() => {
     </div>
 
     <div class="specialists">
-
-
       <div class="specialists__information">
           <span class="specialists__information-title">Наша команда - ваша здоровая улыбка</span>
           <span class="specialists__information-text">Познакомьтесь с нашими высококвалифицированными специалистами.</span>
       </div>
-
-      <!-- <div style="padding: 20px; color: red">Здесь будет слайдер</div> -->
       <SpecialistSlider />
     </div>
 
@@ -140,12 +87,8 @@ onMounted(() => {
       <div class="fidback__question">
         <span class="fidback__title fidback__icon"
           >Что говорят наши пациенты на <Twogis class="fidback__small-icon"/><TwoGisBig class="fidback__big-icon" /></span>
-        <!-- <span class="fidback__text">
-          Познакомьтесь с нашими высококвалифицированными специалистами.
-        </span> -->
       </div>
       <FidbackSlider />
-      <!-- <div style="padding: 20px; color: red">Здесь будет слайдер</div> -->
     </div>
 
     <div class="adress">
@@ -161,7 +104,7 @@ onMounted(() => {
 
     <TreatmentPlan />
     <FooterHome />
-  <!-- </div> -->
+  
 </template>
 
 <style scoped>

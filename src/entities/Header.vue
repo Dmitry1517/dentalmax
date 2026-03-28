@@ -1,6 +1,7 @@
 <script setup>
+import { ref } from 'vue'
 import LogoName from '@/shared/components/LogoName.vue'
-import Button from '@/shared/components/Button.vue'
+import BurgerMenu from './BurgerMenu.vue'
 
 defineProps({
   textColor: {
@@ -10,6 +11,8 @@ defineProps({
     type: Boolean,
   },
 })
+
+const openBurgerMenu = () => {}
 </script>
 
 <template>
@@ -49,10 +52,11 @@ defineProps({
       </div>
       <div class="login">
         <!-- <button class="button button_notbg">Войти</button> -->
-        <button class="button">Записаться</button>
+        <button @click="openBurgerMenu" class="button">Записаться</button>
       </div>
     </div>
   </header>
+  <BurgerMenu />
 </template>
 
 <style>
@@ -118,7 +122,6 @@ defineProps({
   border-radius: 10px;
   padding: 10px;
   color: var(--text-color);
-  /* font-weight: bold; */
   font-size: 16px;
   outline: none;
   border: none;
@@ -177,9 +180,6 @@ defineProps({
   .promo {
     display: none;
   }
-  /* .promo-desctop {
-    display: flex;
-  } */
 }
 
 @media all and (min-width: 768px) {

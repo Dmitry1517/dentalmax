@@ -1,10 +1,7 @@
 <template>
   <div class="slider-component">
-    
     <!-- Slider main container -->
     <div class="slider-wrapper">
-      
-      
       <swiper
         :modules="modules"
         :slides-per-view="slidesPerView"
@@ -16,10 +13,7 @@
         @swiper="onSwiper"
       >
         <!-- Slides -->
-        <swiper-slide
-          v-for="(slide, index) in slidesData"
-          :key="index"
-        >
+        <swiper-slide v-for="(slide, index) in slidesData" :key="index">
           <div class="slide-content">
             <div class="slide-image">
               <div class="slide-shortname">{{ slide.image }}</div>
@@ -35,9 +29,7 @@
           </div>
         </swiper-slide>
       </swiper>
-      
-      
-      
+
       <!-- Навигация для планшета и десктопа -->
       <div v-if="showBottomNavigation" class="bottom-navigation">
         <div class="swiper-pagination"></div>
@@ -84,16 +76,64 @@ const props = defineProps({
   slides: {
     type: Array,
     default: () => [
-      { image: 'АМ', name: 'Анастасия М', stars: 5, caption: 'Хочу оставить положительный отзыв, прохожу лечение в данной стоматологии . Всё очень нравиться , чистая и уютная стоматология . Приветливый персонал. Рекомендую эту стоматологию.' },
-      { image: 'ВЦ', name: 'Виктор Цлавов', stars: 5, caption: 'Лучшая клиника с лучшими ценами и отличнейшими врачами. Сделали все качественно и быстро, а главное комфортно. Максим Сергеевич лучший! Буду приходить еще)' },
-      { image: 'ЗГ', name: 'Зинаида Гришина', stars: 5, caption: 'Приятная, чистая, небольшая стоматология. Врачи очень располагающие и приятные. Лечили кариес, реставрировали зуб, делали чистку, все прошло отлично 👍🏼' },
-      { image: 'О', name: 'Оксана', stars: 5, caption: 'Профессионалы своего дела, спасибо большое что вы есть, удобное расположение, доброжелательный коллектив🥰' },
-      { image: 'ИК', name: 'Ирина Кислюк', stars: 5, caption: 'Мой лечащий врач Максим Сергеевич - очень внимательный, на предварительной консультации всё грамотно объяснил, рассказал. Сделал протезирование коронки. Рекомендую данного хирурга - ортопеда' },
-      { image: 'АБ', name: 'Андрей Бубеев', stars: 5, caption: 'Спасибо большое работникам клиники за профессионализм,и очень благодарен за чуткое отношение, консультацию,решение проблем с зубами! Теперь улыбка,как у Гагарина!' },
-      { image: 'ВЛ', name: 'Валентина Лобсанова', stars: 5, caption: 'Спасибо большое врачу стоматологу Максиму Сергеевичу Ламуеву. Работа была выполнена настолько аккуратно,безболезненно , и быстро ,что я даже не заметила ,как все произошло. Ваши руки золото.' },
-      { image: 'АН', name: 'Арюна Норбоева', stars: 5, caption: 'Были в разных стоматологических клиниках, но после посещения этой, можем сказать одно-лучшая! Отличные врачи! Благодарим врачей за их профессионализм и преданность своему делу! Спасибо за улыбки моих мужа и сына!' }
-    ]
-  }
+      {
+        image: 'АМ',
+        name: 'Анастасия М',
+        stars: 5,
+        caption:
+          'Хочу оставить положительный отзыв, прохожу лечение в данной стоматологии . Всё очень нравиться , чистая и уютная стоматология . Приветливый персонал. Рекомендую эту стоматологию.',
+      },
+      {
+        image: 'ВЦ',
+        name: 'Виктор Цлавов',
+        stars: 5,
+        caption:
+          'Лучшая клиника с лучшими ценами и отличнейшими врачами. Сделали все качественно и быстро, а главное комфортно. Максим Сергеевич лучший! Буду приходить еще)',
+      },
+      {
+        image: 'ЗГ',
+        name: 'Зинаида Гришина',
+        stars: 5,
+        caption:
+          'Приятная, чистая, небольшая стоматология. Врачи очень располагающие и приятные. Лечили кариес, реставрировали зуб, делали чистку, все прошло отлично 👍🏼',
+      },
+      {
+        image: 'О',
+        name: 'Оксана',
+        stars: 5,
+        caption:
+          'Профессионалы своего дела, спасибо большое что вы есть, удобное расположение, доброжелательный коллектив🥰',
+      },
+      {
+        image: 'ИК',
+        name: 'Ирина Кислюк',
+        stars: 5,
+        caption:
+          'Мой лечащий врач Максим Сергеевич - очень внимательный, на предварительной консультации всё грамотно объяснил, рассказал. Сделал протезирование коронки. Рекомендую данного хирурга - ортопеда',
+      },
+      {
+        image: 'АБ',
+        name: 'Андрей Бубеев',
+        stars: 5,
+        caption:
+          'Спасибо большое работникам клиники за профессионализм,и очень благодарен за чуткое отношение, консультацию,решение проблем с зубами! Теперь улыбка,как у Гагарина!',
+      },
+      {
+        image: 'ВЛ',
+        name: 'Валентина Лобсанова',
+        stars: 5,
+        caption:
+          'Спасибо большое врачу стоматологу Максиму Сергеевичу Ламуеву. Работа была выполнена настолько аккуратно,безболезненно , и быстро ,что я даже не заметила ,как все произошло. Ваши руки золото.',
+      },
+      {
+        image: 'АН',
+        name: 'Арюна Норбоева',
+        stars: 5,
+        caption:
+          'Были в разных стоматологических клиниках, но после посещения этой, можем сказать одно-лучшая! Отличные врачи! Благодарим врачей за их профессионализм и преданность своему делу! Спасибо за улыбки моих мужа и сына!',
+      },
+    ],
+  },
 })
 
 // Swiper modules
@@ -217,7 +257,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: #BFDBF1;
+  background: #bfdbf1;
   border-radius: 5px;
   overflow: hidden;
   padding: 15px;
@@ -236,7 +276,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--text-white)
+  color: var(--text-white);
 }
 
 .slide-name {
@@ -273,7 +313,7 @@ h1 {
   font-size: 18px;
   transition: all 0.3s ease;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   z-index: 10;
 }
 
@@ -325,7 +365,7 @@ h1 {
   justify-content: center;
   font-size: 18px;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .arrow-bottom:hover {
@@ -374,26 +414,26 @@ h1 {
     display: block;
     padding-bottom: 50px; /* Место для навигации */
   }
-  
+
   .arrow-side {
     display: none;
   }
-  
+
   .bottom-navigation {
     display: flex;
   }
-  
+
   .slide-content {
     border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin: 10px;
   }
-  
+
   .slide-image {
     /* height: 180px; */
     font-size: 18px;
   }
-  
+
   .slide-caption {
     padding: 20px;
     font-size: 16px;
@@ -408,21 +448,21 @@ h1 {
 
 /* Десктопная версия (1080px+) */
 @media (min-width: 1080px) {
-  .slide-image {
+  /* .slide-image {
     height: 200px;
-  }
-  
+  } */
+
   .slide-caption {
     padding: 25px;
     font-size: 17px;
   }
-  
+
   .arrow-bottom {
     width: 50px;
     height: 50px;
     font-size: 20px;
   }
-  
+
   .bottom-arrows {
     gap: 25px;
   }
@@ -431,7 +471,7 @@ h1 {
 /* Большие десктопы (1200px+) */
 @media (min-width: 1200px) {
   .slide-image {
-    height: 220px;
+    /* height: 220px; */
     font-size: 20px;
   }
 }
@@ -441,18 +481,18 @@ h1 {
   .slider-wrapper {
     gap: 8px;
   }
-  
+
   .arrow-side {
     width: 35px;
     height: 35px;
     font-size: 16px;
   }
-  
+
   .slide-image {
     height: 130px;
     font-size: 14px;
   }
-  
+
   .slide-caption {
     padding: 12px;
     font-size: 13px;
@@ -463,7 +503,7 @@ h1 {
   .slider-wrapper {
     gap: 5px;
   }
-  
+
   .arrow-side {
     width: 30px;
     height: 30px;
@@ -476,7 +516,7 @@ h1 {
   .slide-image {
     height: 120px;
   }
-  
+
   .slide-caption {
     padding: 10px;
     font-size: 13px;
