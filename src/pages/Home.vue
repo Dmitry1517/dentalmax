@@ -33,7 +33,7 @@ onMounted(() => {
       </span>
       <img class="promo-img" src="/public/tooth-all.png" alt="tooth" />
       <div class="promo-mobile__button">
-        <button ">Записаться на приём</button>
+        <RouterLink to="/makeappointment"><button>Записаться на приём</button></RouterLink>
       </div>
     </div>
 
@@ -45,7 +45,7 @@ onMounted(() => {
           Мы предлагаем полный спектр стоматологических услуг, от профилактики до сложного
           протезирования, с использованием передовых технологий и материалов.
         </span>
-        <Button>Записаться на приём</Button>
+        <RouterLink to="/makeappointment"><Button>Записаться на приём</Button></RouterLink>
       </div>
     </div>
     
@@ -72,7 +72,7 @@ onMounted(() => {
     </div>
 
     <div style="display: flex; justify-content: center; padding: 5px 20px 40px 20px">
-      <Button>Подробнее об услугах</Button>
+      <RouterLink to="/services"><Button>Подробнее об услугах</Button></RouterLink>
     </div>
 
     <div class="specialists">

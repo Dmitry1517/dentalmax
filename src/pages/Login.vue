@@ -42,7 +42,7 @@ import UserReg from '@/shared/icons/UserReg.vue'
         </label>
       </div>
       <div class="form-reg__button">
-        <button>Зарегестрироваться</button>
+        <button>Войти</button>
       </div>
     </div>
   </section>

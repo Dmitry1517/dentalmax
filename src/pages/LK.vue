@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import LogoName from '@/shared/components/LogoName.vue';
+</script>
 
 <template>
   <header class="header">

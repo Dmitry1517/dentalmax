@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import LogoName from '@/shared/components/LogoName.vue'
-import BurgerMenu from './BurgerMenu.vue'
+
+const menuIsShow = ref(false)
 
 defineProps({
   textColor: {
@@ -12,7 +13,9 @@ defineProps({
   },
 })
 
-const openBurgerMenu = () => {}
+const openBurgerMenu = () => {
+  menuIsShow.value = !menuIsShow.value
+}
 </script>
 
 <template>
@@ -20,7 +23,7 @@ const openBurgerMenu = () => {}
     <div class="header__inner">
       <RouterLink to="/" style="text-decoration: none"><LogoName :color="textColor" /></RouterLink>
       <div class="header__button">
-        <img src="/menu-btn.png" alt="menu" />
+        <img src="/menu-btn.png" alt="menu" @click="openBurgerMenu" />
       </div>
       <div class="nav">
         <ul class="nav__list">
@@ -56,10 +59,62 @@ const openBurgerMenu = () => {}
       </div>
     </div>
   </header>
-  <BurgerMenu />
+  <div class="burger-menu" :class="menuIsShow ? '' : 'burger-menu__show'">
+    <ul class="burger-menu__list">
+      <RouterLink to="/" @click="menuIsShow = false" class="burger-menu__item">ДентАлМакс</RouterLink>
+      <RouterLink to="/clinic" @click="menuIsShow = false" class="burger-menu__item">Клиника</RouterLink>
+      <RouterLink to="/services" @click="menuIsShow = false" class="burger-menu__item">Услуги</RouterLink>
+      <RouterLink to="/specialists" @click="menuIsShow = false" class="burger-menu__item">Специалисты</RouterLink>
+      <RouterLink to="/fidback" @click="menuIsShow = false" class="burger-menu__item">Отзывы</RouterLink>
+      <RouterLink to="/makeappointment" @click="menuIsShow = false" class="burger-menu__item"><button>Записаться</button></RouterLink>
+    </ul>
+  </div>
 </template>
 
 <style>
+.burger-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 70%;
+  background: linear-gradient(to bottom, rgb(165, 200, 229), white);
+  transition: 0.5s all;
+  z-index: 10;
+}
+
+.burger-menu__show {
+  transform: translateX(-100%);
+}
+
+.burger-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  list-style-type: none;
+}
+
+.burger-menu__item {
+  color: var(--bg-blue);
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.burger-menu__item:first-child {
+  font-size: 24px;
+}
+
+.burger-menu__item button {
+  background: var(--bg-blue);
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: var(--text-white);
+  font-size: 18px;
+}
+
 .header {
   height: 89px;
   width: 100%;

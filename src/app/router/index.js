@@ -8,6 +8,8 @@ import Makeappointment from '@/pages/MakeAppointment.vue'
 import AppointmentCompleted from '@/pages/AppointmentCompleted.vue'
 import Login from '@/pages/Login.vue'
 import LK from '@/pages/LK.vue'
+import ListOfBids from '@/pages/ListOfBids.vue'
+import AdminLayout from '@/pages/AdminLayout.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -49,18 +51,15 @@ const router = createRouter({
     },
     {
       path: '/administrator',
-      name: 'admin',
-      component: Login,
+      component: AdminLayout,       
       meta: { hideHeader: true },
-      children: [{ path: '/administrator/profile', name: 'profile', component: LK }],
+      children: [
+        { path: '',        name: 'admin',   component: Login  },
+        { path: 'profile', name: 'profile', component: LK  },
+        { path: 'bids',    name: 'bids',    component: ListOfBids },
+      ],
     },
-    // {
-    //   path: '/login',
-    //   name: 'login',
-    //   component: Login,
-    //   meta: { hideHeader: true },
-
-    // },
+    
   ],
 })
 
