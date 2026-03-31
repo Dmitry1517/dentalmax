@@ -10,6 +10,9 @@ import Login from '@/pages/Login.vue'
 import LK from '@/pages/LK.vue'
 import ListOfBids from '@/pages/ListOfBids.vue'
 import AdminLayout from '@/pages/AdminLayout.vue'
+import Dashboard from '@/pages/Dashboard.vue'
+import ListOfAdmins from '@/pages/ListOfAdmins.vue'
+import Structure from '@/pages/Structure.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -54,9 +57,13 @@ const router = createRouter({
       component: AdminLayout,       
       meta: { hideHeader: true },
       children: [
-        { path: '',        name: 'admin',   component: Login  },
-        { path: 'profile', name: 'profile', component: LK  },
-        { path: 'bids',    name: 'bids',    component: ListOfBids },
+        { path: '', name: 'admin',   component: Login  },
+        { path: 'dashboard',    name: 'dashboard',    component: Dashboard, children: [
+          { path: '', name: 'structure', component: Structure  },
+          { path: 'bids',    name: 'bids',    component: ListOfBids },
+          { path: 'profile', name: 'profile', component: LK  },
+          { path: 'admins', name: 'admins', component: ListOfAdmins  },
+        ]},
       ],
     },
     

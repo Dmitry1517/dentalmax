@@ -42,7 +42,7 @@ import UserReg from '@/shared/icons/UserReg.vue'
         </label>
       </div>
       <div class="form-reg__button">
-        <button>Войти</button>
+        <RouterLink to="/administrator/dashboard"><button>Войти</button></RouterLink>
       </div>
     </div>
   </section>

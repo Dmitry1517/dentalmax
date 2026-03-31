@@ -3,17 +3,6 @@ import LogoName from '@/shared/components/LogoName.vue';
 </script>
 
 <template>
-    <header class="header">
-        <div class="header__inner">
-            <div style="text-decoration: none"><LogoName color="#092147" /></div>
-            <nav class="nav">
-            <a href="#" class="nav__link">Администраторы</a>
-            <a href="#" class="nav__link">Заявки</a>
-            <a href="#" class="nav__link">Профиль</a>
-            </nav>
-        </div>
-    </header>
- 
     <main class="main">
     <h1 class="page-title">Заявки</h1>
     
