@@ -13,6 +13,9 @@ import AdminLayout from '@/pages/AdminLayout.vue'
 import Dashboard from '@/pages/Dashboard.vue'
 import ListOfAdmins from '@/pages/ListOfAdmins.vue'
 import Structure from '@/pages/Structure.vue'
+import LIstOfServices from '@/pages/LIstOfServices.vue'
+import ListOFDoc from '@/pages/ListOFDoc.vue'
+import ListOfSpec from '@/pages/ListOfSpec.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -59,7 +62,11 @@ const router = createRouter({
       children: [
         { path: '', name: 'admin',   component: Login  },
         { path: 'dashboard',    name: 'dashboard',    component: Dashboard, children: [
-          { path: '', name: 'structure', component: Structure  },
+          { path: '', name: 'structure', component: Structure, children: [
+            { path: '', name: 'listofdoc', component: ListOFDoc  },
+            { path: 'services', name: 'listofservices', component: LIstOfServices  },
+            { path: 'spec', name: 'listofspec', component: ListOfSpec  }
+          ]},
           { path: 'bids',    name: 'bids',    component: ListOfBids },
           { path: 'profile', name: 'profile', component: LK  },
           { path: 'admins', name: 'admins', component: ListOfAdmins  },
