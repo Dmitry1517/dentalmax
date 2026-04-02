@@ -199,7 +199,13 @@ onMounted(() => {
   padding: 5px 10px;
   font-size: 15px;
   cursor: pointer;
-  width: fit-content;  
+  width: fit-content; 
+  transition: 0.3s all;
+}
+
+.services__item:hover {
+  background: var(--bg-blue);
+  color: var(--text-white);
 }
 
 .specialists {

@@ -3,6 +3,8 @@ import { ref } from 'vue'
 import LogoName from '@/shared/components/LogoName.vue'
 
 const menuIsShow = ref(false)
+const showMenuService = ref(false)
+
 
 defineProps({
   textColor: {
@@ -21,7 +23,7 @@ const openBurgerMenu = () => {
 <template>
   <header class="header" :style="{ backgroundColor: headerBg ? '#a5c8e5' : '#fff' }">
     <div class="header__inner">
-      <RouterLink to="/" style="text-decoration: none"><LogoName :color="textColor" /></RouterLink>
+      <RouterLink to="/" style="text-decoration: none"><LogoName :color="textColor" @mouseenter="showMenuService = false" /></RouterLink>
       <div class="header__button">
         <img src="/menu-btn.png" alt="menu" @click="openBurgerMenu" />
       </div>
@@ -31,33 +33,48 @@ const openBurgerMenu = () => {
             to="/clinic"
             :style="{ color: headerBg ? '#fff' : '#092147' }"
             class="nav__item"
+            @mouseenter="showMenuService = false"
             >Клиника</RouterLink
           >
           <RouterLink
             to="/services"
             :style="{ color: headerBg ? '#fff' : '#092147' }"
             class="nav__item"
-            >Услуги</RouterLink
+            @mouseenter="showMenuService = true"
+            
+            >Услуги
+            <div class="menu-hidden" v-if="showMenuService" @mouseleave="showMenuService = false">
+              <ul class="menu-hidden__list">
+                <li class="menu-hidden__item">Терапертическая стоматология</li>
+                <li class="menu-hidden__item">Хирургическая стоматология</li>
+                <li class="menu-hidden__item">Ортодонтическая стоматология</li>
+                <li class="menu-hidden__item">Ортопедическая стоматология</li>
+                <li class="menu-hidden__item">Имплантологическая стоматология</li>
+              </ul>
+            </div>
+            </RouterLink
           >
           <RouterLink
             to="/specialists"
             :style="{ color: headerBg ? '#fff' : '#092147' }"
             class="nav__item"
+            @mouseenter="showMenuService = false"
             >Специалисты</RouterLink
           >
           <RouterLink
             to="/fidback"
             :style="{ color: headerBg ? '#fff' : '#092147' }"
             class="nav__item"
+            @mouseenter="showMenuService = false"
             >Отзывы</RouterLink
           >
         </ul>
       </div>
       <div class="login">
-        <!-- <button class="button button_notbg">Войти</button> -->
         <button @click="openBurgerMenu" class="button">Записаться</button>
       </div>
     </div>
+    
   </header>
   <div class="burger-menu" :class="menuIsShow ? '' : 'burger-menu__show'">
     <ul class="burger-menu__list">
@@ -72,6 +89,31 @@ const openBurgerMenu = () => {
 </template>
 
 <style>
+.menu-hidden {
+  position: absolute;
+  top: 30px;
+  left: -100px;
+  z-index: 10;
+  background: #383b68;
+  color: white;
+  border-radius: 15px;
+  width: 300px;
+}
+.menu-hidden__item {
+  padding: 20px 15px;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px solid var(--bg-white);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.menu-hidden__item:last-child {
+  border-bottom: none;
+}
+.menu-hidden__list {
+  list-style-type: none;
+}
 .burger-menu {
   position: fixed;
   top: 0;
@@ -119,6 +161,7 @@ const openBurgerMenu = () => {
   height: 89px;
   width: 100%;
   padding: 20px 15px;
+  position: relative;
 }
 
 .header__inner {
@@ -161,6 +204,7 @@ const openBurgerMenu = () => {
   cursor: pointer;
   text-decoration: none;
   font-weight: 600;
+  position: relative;
 }
 
 .nav {

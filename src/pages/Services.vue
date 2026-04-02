@@ -12,11 +12,11 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
             <span class="services__brad">Услуги</span>
         </span>
         <ul class="services__list">
-            <li class="services__item">Терапевтическая стоматология</li>
-            <li class="services__item">Хирургическая стоматология</li>
-            <li class="services__item">Имплантологическая стоматология</li>
-            <li class="services__item">Ортопедическая стоматология</li>
-            <li class="services__item">Ортодонтическая стоматология</li>
+            <RouterLink to="/terapevt" class="services__item">Терапевтическая стоматология</RouterLink>
+            <RouterLink to="/hirurg" class="services__item">Хирургическая стоматология</RouterLink>
+            <RouterLink to="/implant" class="services__item">Имплантологическая стоматология</RouterLink>
+            <RouterLink to="/ortoped" class="services__item">Ортопедическая стоматология</RouterLink>
+            <RouterLink to="/ortodont" class="services__item">Ортодонтическая стоматология</RouterLink>
         </ul>
         <TreatmentPlan />
     </div>
@@ -52,6 +52,7 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
     gap: 15px;
     list-style-type: none;
     flex-wrap: wrap;
+    
 }
 
 .services__item {
@@ -61,8 +62,14 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
     padding: 5px 10px;
     font-size: 15px;
     cursor: pointer;
-    width: fit-content;
-    
+    width: fit-content; 
+    transition: 0.3s all;
+    text-decoration: none;
+}
+
+.services__item:hover {
+    color: var(--bg-white);
+    background: var(--bg-blue)
 }
 
 @media all and (min-width: 768px) {
@@ -75,15 +82,6 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
 }
 
 @media all and (min-width: 1280px) {
-    /* .services__list,
-    .services__title {
-        width: 1280px;
-        margin: 0 auto;
-    }
-    .services-name {
-        width: 1280px;
-        margin: 0 auto;
-    } */
     .services {
         width: 1280px;
     }

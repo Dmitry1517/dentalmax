@@ -16,6 +16,11 @@ import Structure from '@/pages/Structure.vue'
 import LIstOfServices from '@/pages/LIstOfServices.vue'
 import ListOFDoc from '@/pages/ListOFDoc.vue'
 import ListOfSpec from '@/pages/ListOfSpec.vue'
+import ImplantService from '@/pages/ImplantService.vue'
+import OrtopedService from '@/pages/OrtopedService.vue'
+import TerapevtService from '@/pages/TerapevtService.vue'
+import OrtodontService from '@/pages/OrtodontService.vue'
+import HirurgService from '@/pages/HirurgService.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -35,6 +40,11 @@ const router = createRouter({
       name: 'services',
       component: Services,
     },
+    { path: '/implant', name: 'implant', component: ImplantService },
+    { path: '/ortoped', name: 'ortoped', component: OrtopedService },
+    { path: '/ortodont', name: 'ortodont', component: OrtodontService },
+    { path: '/hirurg', name: 'hirurg', component: HirurgService },
+    { path: '/terapevt', name: 'terapevt', component: TerapevtService },
     {
       path: '/specialists',
       name: 'specialists',
