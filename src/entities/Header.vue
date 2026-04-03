@@ -158,7 +158,7 @@ const openBurgerMenu = () => {
 }
 
 .header {
-  height: 89px;
+  /* height: 89px; */
   width: 100%;
   padding: 20px 15px;
   position: relative;

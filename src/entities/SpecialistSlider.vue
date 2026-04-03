@@ -245,7 +245,6 @@ h1 {
   font-size: 18px;
   transition: all 0.3s ease;
   flex-shrink: 0;
-  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); */
   z-index: 10;
 }
 
