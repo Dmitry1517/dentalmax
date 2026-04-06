@@ -112,7 +112,7 @@ const fids = reactive([
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 25px;
 }
 .fidback-items__user {
     display: flex;

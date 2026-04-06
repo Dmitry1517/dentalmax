@@ -16,7 +16,7 @@ const props = defineProps({
     type: Array,
     default: () => [
       {
-        image: 'Фото 1',
+        image: '/public/fhoto-doc.jpg',
         caption: 'Фамилия Имя Отчество',
       },
       { image: 'Фото 2', caption: 'Фамилия Имя Отчество' },
@@ -113,7 +113,8 @@ onUnmounted(() => {
         <swiper-slide v-for="(slide, index) in slidesData" :key="index">
           <div class="slide-content">
             <div class="slide-image">
-              {{ slide.image }}
+              <img :src="slide.image" alt="doc" class="slide-fhoto-img" />
+              <!-- {{ slide.image }} -->
               <div class="slide-spec">Терапевт</div>
               <ArrowLink class="slide-link" />
             </div>
@@ -219,6 +220,13 @@ h1 {
   color: white;
   font-size: 16px;
   margin: 0 auto;
+}
+
+.slide-fhoto-img {
+  width: 256px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .slide-caption {
@@ -416,6 +424,9 @@ h1 {
   .slide-image {
     height: 400px;
     font-size: 20px;
+  }
+  .slide-fhoto-img {
+    height: 400px;
   }
 }
 

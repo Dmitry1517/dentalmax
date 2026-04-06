@@ -2,7 +2,15 @@
 import LogoName from '@/shared/components/LogoName.vue'
 import EmailReg from '@/shared/icons/EmailReg.vue'
 import PassReg from '@/shared/icons/PassReg.vue'
-import UserReg from '@/shared/icons/UserReg.vue'
+
+const logToAdmin = async () => {
+  try {
+    const response = await fetch('/api/login/')
+    console.log('API доступен, статус:', response.status)
+  } catch (err) {
+    console.log('API недоступен:', err.message)
+  }
+}
 </script>
 
 <template>
@@ -42,7 +50,7 @@ import UserReg from '@/shared/icons/UserReg.vue'
         </label>
       </div>
       <div class="form-reg__button">
-        <RouterLink to="/administrator/dashboard"><button>Войти</button></RouterLink>
+        <RouterLink to="/administrator/dashboard"><button @click="logToAdmin">Войти</button></RouterLink>
       </div>
     </div>
   </section>

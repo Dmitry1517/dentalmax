@@ -45,11 +45,11 @@ const openBurgerMenu = () => {
             >Услуги
             <div class="menu-hidden" v-if="showMenuService" @mouseleave="showMenuService = false">
               <ul class="menu-hidden__list">
-                <li class="menu-hidden__item">Терапертическая стоматология</li>
-                <li class="menu-hidden__item">Хирургическая стоматология</li>
-                <li class="menu-hidden__item">Ортодонтическая стоматология</li>
-                <li class="menu-hidden__item">Ортопедическая стоматология</li>
-                <li class="menu-hidden__item">Имплантологическая стоматология</li>
+                <RouterLink to="/terapevt"><li @click="showMenuService = false" class="menu-hidden__item">Терапертическая стоматология</li></RouterLink>
+                <RouterLink to="/hirurg"><li @click="showMenuService = false" class="menu-hidden__item">Хирургическая стоматология</li></RouterLink>
+                <RouterLink to="/ortodont"><li @click="showMenuService = false" class="menu-hidden__item">Ортодонтическая стоматология</li></RouterLink>
+                <RouterLink to="/ortoped"><li @click="showMenuService = false" class="menu-hidden__item">Ортопедическая стоматология</li></RouterLink>
+                <RouterLink to="/implant"><li @click="showMenuService = false" class="menu-hidden__item">Имплантологическая стоматология</li></RouterLink>
               </ul>
             </div>
             </RouterLink
@@ -71,7 +71,7 @@ const openBurgerMenu = () => {
         </ul>
       </div>
       <div class="login">
-        <button @click="openBurgerMenu" class="button">Записаться</button>
+        <RouterLink to="/makeappointment"><button class="button">Записаться</button></RouterLink>
       </div>
     </div>
     
@@ -92,25 +92,30 @@ const openBurgerMenu = () => {
 .menu-hidden {
   position: absolute;
   top: 30px;
-  left: -100px;
+  left: -150px;
   z-index: 10;
   background: #383b68;
   color: white;
   border-radius: 15px;
-  width: 300px;
+  width: 370px;
 }
 .menu-hidden__item {
-  padding: 20px 15px;
+  padding: 15px 15px;
   cursor: pointer;
   text-decoration: none;
   border-bottom: 1px solid var(--bg-white);
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--text-white);
 }
 
-.menu-hidden__item:last-child {
-  border-bottom: none;
+a:active {
+  text-decoration: none;
 }
+
+/* .menu-hidden__item:last-child {
+  border-bottom: none;
+} */
 .menu-hidden__list {
   list-style-type: none;
 }
@@ -293,6 +298,10 @@ const openBurgerMenu = () => {
   .login {
     display: flex;
     align-items: center;
+  }
+
+  .burger-menu {
+    display: none;
   }
 }
 

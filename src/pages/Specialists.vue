@@ -8,7 +8,7 @@ import SpecialistSlider from '@/entities/SpecialistSlider.vue';
     <div class="specialists">
         <div class="specialists__title">СПЕЦИАЛИСТЫ</div>
         <span class="specialists-name">
-            <span class="clinic__brad">Главная</span>
+            <RouterLink to="/"><span class="clinic__brad">Главная</span></RouterLink>
             <span class="clinic__brad"> > </span>
             <span class="clinic__brad">Специалисты</span>
         </span>
@@ -50,6 +50,11 @@ import SpecialistSlider from '@/entities/SpecialistSlider.vue';
   color: var(--text-grey-4);
   padding: 0px 20px;
   margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-grey-4);
 }
 
 .specialists__list {

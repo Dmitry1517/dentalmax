@@ -7,9 +7,9 @@ import FooterHome from '@/entities/FooterHome.vue';
     <div class="services">
         <div class="services__title">Терапевтическая стоматология</div>
         <span class="services-name">
-            <span class="services__brad">Главная</span>
+            <RouterLink to="/"><span class="clinic__brad">Главная</span></RouterLink>
             <span class="services__brad"> > </span>
-            <span class="services__brad">Услуги</span>
+            <RouterLink to="/services"><span class="clinic__brad">Услуги</span></RouterLink>
             <span class="services__brad"> > </span>
             <span class="services__brad">Терапевтическая стоматология</span>
         </span>
@@ -105,6 +105,11 @@ import FooterHome from '@/entities/FooterHome.vue';
   font-size: 25px;
   font-weight: 600;
   color: var(--text-blue);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-grey-4);
 }
 
 .services__text {

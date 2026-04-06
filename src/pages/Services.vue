@@ -7,7 +7,7 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
     <div class="services">
         <div class="services__title">СТОМАТОЛОГИЧЕСКИЕ УСЛУГИ</div>
         <span class="services-name">
-            <span class="services__brad">Главная</span>
+            <RouterLink to="/"><span class="clinic__brad">Главная</span></RouterLink>
             <span class="services__brad"> > </span>
             <span class="services__brad">Услуги</span>
         </span>
@@ -38,6 +38,12 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
   padding: 0px 20px;
   margin-top: 20px;
 }
+
+a {
+  text-decoration: none;
+  color: var(--text-grey-4);
+}
+
 .services__title {
   font-size: 25px;
   font-weight: 600;

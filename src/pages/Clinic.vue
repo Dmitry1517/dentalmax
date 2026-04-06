@@ -9,7 +9,7 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
     <span class="title">КЛИНИКА</span>
     <section class="clinic-info">
       <span class="clinic-name">
-        <span class="clinic__brad">Главная</span>
+        <RouterLink to="/"><span class="clinic__brad">Главная</span></RouterLink>
         <span class="clinic__brad"> > </span>
         <span class="clinic__brad">Клиника</span>
       </span>
@@ -83,6 +83,11 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
   align-items: center;
   gap: 10px;
   font-size: 14px;
+  color: var(--text-grey-4);
+}
+
+a {
+  text-decoration: none;
   color: var(--text-grey-4);
 }
 
