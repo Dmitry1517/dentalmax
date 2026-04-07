@@ -2,6 +2,7 @@
 import DocumentSlider from '@/entities/DocumentSlider.vue';
 import FooterHome from '@/entities/FooterHome.vue';
 import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
+import PdfIcon from '@/shared/icons/PdfIcon.vue';
 </script>
 
 <template>
@@ -46,9 +47,13 @@ import TreatmentPlan from '@/shared/components/TreatmentPlan.vue';
         чтобы каждый наш врач и ассистент был мотивирован делать лучший выбор для пациента. 
       </span>
       <span class="sub-title">Лицензия и документы оргранизации</span>
+      <ul class="doc-list">
+        <li class="doc-list-item"><PdfIcon /> Лицензия</li>
+        <li class="doc-list-item"><PdfIcon /> Заключение САНПИН</li>
+      </ul>
     </section>
       
-    <DocumentSlider style="margin-top: 20px;" />
+    <!-- <DocumentSlider style="margin-top: 20px;" /> -->
     
     <TreatmentPlan />
     
@@ -138,6 +143,21 @@ a {
 
 .clinic__docs {
   padding: 0px 20px;
+}
+
+.doc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style-type: none;
+}
+
+.doc-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 
