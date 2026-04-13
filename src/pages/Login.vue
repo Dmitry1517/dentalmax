@@ -6,9 +6,18 @@ import PassReg from '@/shared/icons/PassReg.vue'
 const logToAdmin = async () => {
   try {
     const response = await fetch('/api/login/')
-    console.log('API доступен, статус:', response.status)
+
+    const contentType = response.headers.get('content-type')
+    if (!contentType?.includes('application/json')) {
+      console.log('Бэкенд не отвечает, JSONa — скорее всего нет')
+      return null
+    }
+
+    console.log('Бэкенд доступен, статус:', response.status)
+    return response.status
   } catch (err) {
-    console.log('API недоступен:', err.message)
+    console.log('Бэкенд не запущен:', err.message)
+    return null
   }
 }
 </script>
@@ -50,7 +59,9 @@ const logToAdmin = async () => {
         </label>
       </div>
       <div class="form-reg__button">
-        <RouterLink to="/administrator/dashboard"><button @click="logToAdmin">Войти</button></RouterLink>
+        <RouterLink to="/administrator/dashboard"
+          ><button @click="logToAdmin">Войти</button></RouterLink
+        >
       </div>
     </div>
   </section>
