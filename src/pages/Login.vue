@@ -3,23 +3,30 @@ import LogoName from '@/shared/components/LogoName.vue'
 import EmailReg from '@/shared/icons/EmailReg.vue'
 import PassReg from '@/shared/icons/PassReg.vue'
 
-const logToAdmin = async () => {
-  try {
-    const response = await fetch('/api/login/')
+class StomsApiService {
+  options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify({
+      email: 'dshutrin@mail.ru',
+      password: 'Ltkmnf-02',
+    }),
+  }
 
-    const contentType = response.headers.get('content-type')
-    if (!contentType?.includes('application/json')) {
-      console.log('Бэкенд не отвечает, JSONa — скорее всего нет')
-      return null
-    }
-
-    console.log('Бэкенд доступен, статус:', response.status)
-    return response.status
-  } catch (err) {
-    console.log('Бэкенд не запущен:', err.message)
-    return null
+  async getAnsweer() {
+    const response = await fetch('http://157.22.192.187/api/login', this.options)
+    if (!response.ok) throw new Error()
+    else return response.json()
   }
 }
+
+const stomsApiService = new StomsApiService()
+
+stomsApiService
+  .getAnsweer()
+  .then((data) => console.log(data))
+  .catch((error) => console.log(error))
 </script>
 
 <template>
