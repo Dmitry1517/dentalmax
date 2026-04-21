@@ -1,34 +1,34 @@
 <script setup>
+import { ref } from 'vue'
 import LogoName from '@/shared/components/LogoName.vue'
 import EmailReg from '@/shared/icons/EmailReg.vue'
 import PassReg from '@/shared/icons/PassReg.vue'
-// import StomsApiService from '@/app/api/dentalmaxApiService'
-// import { useDentalStore } from '@/app/stores/store'
 
+const email = ref('')
+const password = ref('')
+
+console.log(email.value)
 </script>
 
 <template>
   <header class="header">
     <div class="header__inner">
       <RouterLink to="/" style="text-decoration: none"><LogoName color="#092147" /></RouterLink>
-      <div class="login">
-        <!-- <button class="button button_notbg">Войти</button>
-        <button class="button">Регистрация</button> -->
-      </div>
     </div>
   </header>
   <section class="form-reg">
     <div class="form-reg__wrapper">
       <span class="form-reg__title">С возвращением</span>
       <span class="form-reg__text"
-        >Откройте для себя лучший способ экономии средств с помощью ДентАлМакс</span>
+        >Откройте для себя лучший способ экономии средств с помощью ДентАлМакс</span
+      >
 
       <div class="form-reg__input">
-        <input type="text" placeholder="Введите свой Email" />
+        <input type="text" placeholder="Введите свой Email" v-model="email" />
         <span class="form-reg__icon"><EmailReg /></span>
       </div>
       <div class="form-reg__input">
-        <input type="text" placeholder="Пароль" />
+        <input type="text" placeholder="Пароль" v-model="password" />
         <span class="form-reg__icon"><PassReg /></span>
       </div>
       <div class="form-reg__pol-conf">
