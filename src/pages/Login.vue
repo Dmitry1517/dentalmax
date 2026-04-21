@@ -2,31 +2,9 @@
 import LogoName from '@/shared/components/LogoName.vue'
 import EmailReg from '@/shared/icons/EmailReg.vue'
 import PassReg from '@/shared/icons/PassReg.vue'
+// import StomsApiService from '@/app/api/dentalmaxApiService'
+// import { useDentalStore } from '@/app/stores/store'
 
-class StomsApiService {
-  options = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    credentials: 'include',
-    body: JSON.stringify({
-      email: 'dshutrin@mail.ru',
-      password: 'Ltkmnf-02',
-    }),
-  }
-
-  async getAnsweer() {
-    const response = await fetch('http://157.22.192.187/api/login', this.options)
-    if (!response.ok) throw new Error()
-    else return response.json()
-  }
-}
-
-const stomsApiService = new StomsApiService()
-
-stomsApiService
-  .getAnsweer()
-  .then((data) => console.log(data))
-  .catch((error) => console.log(error))
 </script>
 
 <template>
@@ -43,8 +21,7 @@ stomsApiService
     <div class="form-reg__wrapper">
       <span class="form-reg__title">С возвращением</span>
       <span class="form-reg__text"
-        >Откройте для себя лучший способ экономии средств с помощью ДентАлМакс</span
-      >
+        >Откройте для себя лучший способ экономии средств с помощью ДентАлМакс</span>
 
       <div class="form-reg__input">
         <input type="text" placeholder="Введите свой Email" />
