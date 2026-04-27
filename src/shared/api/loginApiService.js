@@ -1,10 +1,8 @@
-import { useDentalStore } from '@/app/stores/store'
-
-const dentalStore = useDentalStore()
-
 export default class LoginApiService {
+  baseUrl = 'http://157.22.192.187'
+
   async loginToAdmin(email, password) {
-    const response = await fetch(`${dentalStore.baseUrl}/api/login`, {
+    const response = await fetch(`${this.baseUrl}/api/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',

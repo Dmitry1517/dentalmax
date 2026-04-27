@@ -3,11 +3,16 @@ import { ref } from 'vue'
 import LogoName from '@/shared/components/LogoName.vue'
 import EmailReg from '@/shared/icons/EmailReg.vue'
 import PassReg from '@/shared/icons/PassReg.vue'
+import LoginApiService from '@/shared/api/loginApiService'
+
+const loginApiService = new LoginApiService()
 
 const email = ref('')
 const password = ref('')
 
-console.log(email.value)
+const handlerButtonLogin = () => {
+  console.log(email.value)
+}
 </script>
 
 <template>
@@ -44,7 +49,7 @@ console.log(email.value)
       </div>
       <div class="form-reg__button">
         <RouterLink to="/administrator/dashboard"
-          ><button @click="logToAdmin">Войти</button></RouterLink
+          ><button @click="handlerButtonLogin">Войти</button></RouterLink
         >
       </div>
     </div>
