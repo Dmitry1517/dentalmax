@@ -1,17 +1,64 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import LogoName from '@/shared/components/LogoName.vue'
 import EmailReg from '@/shared/icons/EmailReg.vue'
 import PassReg from '@/shared/icons/PassReg.vue'
 import LoginApiService from '@/shared/api/loginApiService'
 
+const router = useRouter()
 const loginApiService = new LoginApiService()
 
 const email = ref('')
 const password = ref('')
+const isLoading = ref(false)
+const errorMessage = ref('')
 
-const handlerButtonLogin = () => {
-  console.log(email.value)
+const handlerButtonLogin = async () => {
+  // Очищаем предыдущее сообщение об ошибке
+  errorMessage.value = ''
+
+  // Простая валидация
+  if (!email.value || !password.value) {
+    errorMessage.value = 'Пожалуйста, заполните все поля'
+    return
+  }
+
+  isLoading.value = true
+
+  try {
+    const response = await loginApiService.loginToAdmin(email.value, password.value)
+
+    // Проверяем успешность входа по полю message
+    if (response && response.message === 'login success') {
+      try {
+        const allUsers = await loginApiService.getAllUsers()
+        const currentUser = allUsers.data.find((user) => user.email === email.value)
+        if (currentUser) {
+          localStorage.setItem('userId', currentUser.id)
+        }
+      } catch (err) {
+        console.error('Failed to get user ID:', err)
+      }
+      // Перенаправляем на страницу дашборда
+      await router.push('/administrator/dashboard')
+    } else {
+      // Если ответ не соответствует ожидаемому
+      errorMessage.value = 'Неправильный логин или пароль'
+    }
+  } catch (error) {
+    // Обрабатываем ошибки из API сервиса
+    if (error.message === 'Неверный логин или пароль') {
+      errorMessage.value = 'Неправильный логин или пароль'
+    } else if (error.message.includes('Ошибка сервера')) {
+      errorMessage.value = 'Ошибка сервера. Пожалуйста, попробуйте позже'
+    } else {
+      errorMessage.value = 'Произошла ошибка. Проверьте подключение к интернету'
+    }
+    console.error('Login error:', error)
+  } finally {
+    isLoading.value = false
+  }
 }
 </script>
 
@@ -29,13 +76,27 @@ const handlerButtonLogin = () => {
       >
 
       <div class="form-reg__input">
-        <input type="text" placeholder="Введите свой Email" v-model="email" />
+        <input
+          type="email"
+          placeholder="Введите свой Email"
+          v-model="email"
+          :disabled="isLoading"
+          @keyup.enter="handlerButtonLogin"
+        />
         <span class="form-reg__icon"><EmailReg /></span>
       </div>
+
       <div class="form-reg__input">
-        <input type="text" placeholder="Пароль" v-model="password" />
+        <input
+          type="password"
+          placeholder="Пароль"
+          v-model="password"
+          :disabled="isLoading"
+          @keyup.enter="handlerButtonLogin"
+        />
         <span class="form-reg__icon"><PassReg /></span>
       </div>
+
       <div class="form-reg__pol-conf">
         <label class="checkbox">
           <input type="checkbox" class="checkbox__input" />
@@ -47,16 +108,49 @@ const handlerButtonLogin = () => {
           </span>
         </label>
       </div>
+
+      <!-- Блок для отображения ошибок -->
+      <div v-if="errorMessage" class="form-reg__error">
+        {{ errorMessage }}
+      </div>
+
       <div class="form-reg__button">
-        <RouterLink to="/administrator/dashboard"
-          ><button @click="handlerButtonLogin">Войти</button></RouterLink
+        <button
+          @click="handlerButtonLogin"
+          :disabled="isLoading"
+          :class="{ 'button-disabled': isLoading }"
         >
+          {{ isLoading ? 'Вход...' : 'Войти' }}
+        </button>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
+/* Добавьте эти стили к существующим */
+
+.form-reg__error {
+  color: #ff0000;
+  font-size: 14px;
+  text-align: center;
+  padding: 5px 10px;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-top: -10px;
+}
+
+.form-reg__button button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Остальные существующие стили */
 .header {
   width: 100%;
   padding: 20px 15px;
@@ -125,6 +219,11 @@ const handlerButtonLogin = () => {
   font-size: 14px;
 }
 
+.form-reg__input input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
 .form-reg__icon {
   position: absolute;
   top: 50%;
@@ -155,7 +254,6 @@ input::placeholder {
 }
 
 /* Checkbox */
-
 .checkbox__input {
   position: absolute;
   clip: rect(0, 0, 0, 0);
